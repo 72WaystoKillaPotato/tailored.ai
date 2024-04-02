@@ -51,8 +51,11 @@
 		A880F8152BBC208500FD0DE5 /* TinderClone */ = {
 			isa = PBXGroup;
 			children = (
-				A880F8162BBC208500FD0DE5 /* TinderCloneApp.swift */,
-				A880F8182BBC208500FD0DE5 /* ContentView.swift */,
+				A880F8242BBC239400FD0DE5 /* App */,
+				A880F8252BBC239A00FD0DE5 /* Core */,
+				A880F8262BBC23A100FD0DE5 /* Extensions */,
+				A880F8272BBC23A700FD0DE5 /* Shared */,
+				A880F8282BBC23AE00FD0DE5 /* Utils */,
 				A880F81A2BBC208700FD0DE5 /* Assets.xcassets */,
 				A880F81C2BBC208700FD0DE5 /* Preview Content */,
 			);
@@ -65,6 +68,91 @@
 				A880F81D2BBC208700FD0DE5 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		A880F8242BBC239400FD0DE5 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				A880F8162BBC208500FD0DE5 /* TinderCloneApp.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		A880F8252BBC239A00FD0DE5 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				A880F82C2BBC23E700FD0DE5 /* Cards */,
+				A880F82B2BBC23E100FD0DE5 /* Messaging */,
+				A880F82A2BBC23DC00FD0DE5 /* Profile */,
+				A880F8292BBC23D900FD0DE5 /* Root */,
+				A880F82D2BBC23F200FD0DE5 /* Search */,
+				A880F82E2BBC242600FD0DE5 /* TabBar */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		A880F8262BBC23A100FD0DE5 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		A880F8272BBC23A700FD0DE5 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
+		A880F8282BBC23AE00FD0DE5 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		A880F8292BBC23D900FD0DE5 /* Root */ = {
+			isa = PBXGroup;
+			children = (
+				A880F8182BBC208500FD0DE5 /* ContentView.swift */,
+			);
+			path = Root;
+			sourceTree = "<group>";
+		};
+		A880F82A2BBC23DC00FD0DE5 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		A880F82B2BBC23E100FD0DE5 /* Messaging */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Messaging;
+			sourceTree = "<group>";
+		};
+		A880F82C2BBC23E700FD0DE5 /* Cards */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Cards;
+			sourceTree = "<group>";
+		};
+		A880F82D2BBC23F200FD0DE5 /* Search */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
+		A880F82E2BBC242600FD0DE5 /* TabBar */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = TabBar;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
