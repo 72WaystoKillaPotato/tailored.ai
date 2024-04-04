@@ -10,7 +10,7 @@ import SwiftUI
 struct TabBarView: View {
     var body: some View {
         TabView {
-            Text("swiping page")
+            CardStackView()
                 .tabItem { Image(systemName: "flame") }
                 .tag(0)
             
@@ -26,6 +26,7 @@ struct TabBarView: View {
                 .tabItem { Image(systemName: "person") }
                 .tag(3)
         }
+        .tint(.primary)
     }
 }
 

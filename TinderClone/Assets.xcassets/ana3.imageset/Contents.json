@@ -1,0 +1,21 @@
+{
+  "images" : [
+    {
+      "filename" : "ana-de-armas-attends-the-saint-laurent-show-as-part-of-the-news-photo-1583599930.jpg",
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "3x"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

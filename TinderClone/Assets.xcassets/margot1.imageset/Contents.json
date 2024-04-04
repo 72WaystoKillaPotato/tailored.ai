@@ -1,0 +1,21 @@
+{
+  "images" : [
+    {
+      "filename" : "margot-robbie-attends-the-new-york-premiere-of-asteroid-news-photo-1689698979.jpg",
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "3x"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}
