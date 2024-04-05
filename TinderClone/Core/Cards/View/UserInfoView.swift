@@ -16,13 +16,9 @@ struct UserInfoView: View {
     var body: some View {
         VStack(alignment: .leading) {
             HStack {
-                Text(user.fullname)
+                Text(user.description)
                     .font(.title)
                     .fontWeight(.heavy)
-                
-                Text(String(user.age))
-                    .font(.title)
-                    .fontWeight(.semibold)
                 
                 Spacer()
                 

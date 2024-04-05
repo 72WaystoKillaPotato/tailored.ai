@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct CardView: View {
-    
+    @EnvironmentObject var contentViewModel: ContentViewModel
     @ObservedObject var viewModel: CardsViewModel
     
     @State private var xOffset: CGFloat = 0
@@ -21,7 +21,7 @@ struct CardView: View {
     var body: some View {
         ZStack(alignment: .bottom) {
             ZStack(alignment: .top) {
-                Image(user.profileImageURLs[currentImageIndex])
+                Image(user.profileImageURL[currentImageIndex])
                     .resizable()
                     .scaledToFill()
                     .frame(width: SizeConstants.cardWidth, height: SizeConstants.cardHeight)
@@ -63,7 +63,7 @@ private extension CardView {
     }
     
     var imageCount: Int {
-        return user.profileImageURLs.count
+        return user.profileImageURL.count
     }
 }
 
@@ -80,6 +80,8 @@ private extension CardView {
             degrees = 12
         } completion: {
             viewModel.removeCard(model)
+            contentViewModel.likedCardsModels.append(model)
+            print("Liked: \(contentViewModel.likedCardsModels)")
         }
     }
     

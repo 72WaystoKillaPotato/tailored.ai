@@ -5,4 +5,8 @@
 //  Created by Samantha Su on 4/5/24.
 //
 
-import Foundation
+import SwiftUI
+
+class ContentViewModel: ObservableObject {
+    @Published var likedCardsModels: [CardModel] = [] // Add this line to store liked models
+}

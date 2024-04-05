@@ -15,8 +15,10 @@ struct CardStackView: View {
         NavigationStack {
             VStack(spacing: 10) {
                 ZStack {
+                    Text("no more outfits, sorry!").font(.title3).fontWeight(.medium).foregroundColor(Color(UIColor.systemGray)).multilineTextAlignment(.center)
                     ForEach(viewModel.cardModels) { card in
                         CardView(viewModel: viewModel, model: card)
+                            
                     }
                 }
                 
@@ -26,8 +28,7 @@ struct CardStackView: View {
             }
             .toolbar {
                 ToolbarItem(placement: .topBarLeading) {
-                    Image(.tinderLogo)
-                        .resizable()
+                    Text("Tailored.ai")
                         .scaledToFill()
                         .frame(width: 88)
                 }

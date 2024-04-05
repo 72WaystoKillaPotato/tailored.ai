@@ -9,9 +9,14 @@ import SwiftUI
 
 @main
 struct TinderCloneApp: App {
+    
+    @StateObject var contentViewModel = ContentViewModel()
+
+    
     var body: some Scene {
         WindowGroup {
-            CardStackView()
+            TabBarView()
+                .environmentObject(ContentViewModel()) // Add the shared ViewModel to the environment
         }
     }
 }

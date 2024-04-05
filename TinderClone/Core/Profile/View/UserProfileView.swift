@@ -17,12 +17,9 @@ struct UserProfileView: View {
     var body: some View {
         VStack {
             HStack {
-                Text(user.fullname)
+                Text(user.description)
                     .font(.title2)
                     .fontWeight(.semibold)
-                
-                Text(String(user.age))
-                    .font(.title2)
                 
                 Spacer()
                 
@@ -40,16 +37,16 @@ struct UserProfileView: View {
             ScrollView {
                 VStack {
                     ZStack(alignment: .top) {
-                        Image(user.profileImageURLs[currentImageIndex])
+                        Image(user.profileImageURL[currentImageIndex])
                             .resizable()
                             .scaledToFill()
                             .frame(height: SizeConstants.cardHeight)
                             .overlay {
-                                ImageScrollingOverlay(currentImageIndex: $currentImageIndex, imageCount: user.profileImageURLs.count)
+                                ImageScrollingOverlay(currentImageIndex: $currentImageIndex, imageCount: user.profileImageURL.count)
                                 
                             }
                         
-                        CardImageIndicatorView(currentImageIndex: currentImageIndex, imageCount: user.profileImageURLs.count)
+                        CardImageIndicatorView(currentImageIndex: currentImageIndex, imageCount: user.profileImageURL.count)
                     }
                 }
             }

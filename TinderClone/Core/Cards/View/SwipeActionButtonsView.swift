@@ -12,7 +12,7 @@ struct SwipeActionButtonsView: View {
     @ObservedObject var viewModel: CardsViewModel
     
     var body: some View {
-        HStack(spacing: 32) {
+        HStack(spacing: 40) {
             Button {
                 viewModel.buttonSwipeAction = .reject
             } label: {

@@ -8,7 +8,7 @@
 import Foundation
 
 @MainActor
-class CardsViewMode: ObservableObject {
+class CardsViewModel: ObservableObject {
     
     @Published var cardModels = [CardModel]()
     @Published var buttonSwipeAction: SwipeAction?

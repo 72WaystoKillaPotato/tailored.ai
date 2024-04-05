@@ -34,7 +34,7 @@ public extension String {
     /**
      Calculates the best height of the text for available width and font used.
      */
-    public func heightForWidth(width: CGFloat, font: UIFont) -> CGFloat {
+    func heightForWidth(width: CGFloat, font: UIFont) -> CGFloat {
         let rect = NSString(string: self).boundingRect(
             with: CGSize(width: width, height: CGFloat(MAXFLOAT)),
             options: .usesLineFragmentOrigin,
