@@ -31,7 +31,7 @@ struct SwipeActionButtonsView: View {
             Button {
                 viewModel.buttonSwipeAction = .like
             } label: {
-                Image(systemName: "heart.fill")
+                Image(systemName: "pin.fill")
                     .fontWeight(.heavy)
                     .foregroundStyle(.green)
                     .background {

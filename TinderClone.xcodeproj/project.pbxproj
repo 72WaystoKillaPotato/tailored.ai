@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		856DB9472BCF83B600723BA4 /* WaterfallGrid in Frameworks */ = {isa = PBXBuildFile; productRef = 856DB9462BCF83B600723BA4 /* WaterfallGrid */; };
+		856DB9492BCF8C1400723BA4 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 856DB9482BCF8C1400723BA4 /* Constants.swift */; };
 		85C0E4E02BC08A8300FE5615 /* ContentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85C0E4DF2BC08A8300FE5615 /* ContentViewModel.swift */; };
 		85C0E4E92BC090F300FE5615 /* Help.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85C0E4E22BC090F200FE5615 /* Help.swift */; };
 		85C0E4EA2BC090F300FE5615 /* PinterestLayoutDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85C0E4E32BC090F200FE5615 /* PinterestLayoutDelegate.swift */; };
@@ -29,7 +31,7 @@
 		A880F8422BBC4C0300FD0DE5 /* CardStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A880F8412BBC4C0300FD0DE5 /* CardStackView.swift */; };
 		A880F8462BBC4E7300FD0DE5 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = A880F8452BBC4E7300FD0DE5 /* User.swift */; };
 		A880F8492BBC4ECD00FD0DE5 /* CardModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A880F8482BBC4ECD00FD0DE5 /* CardModel.swift */; };
-		A880F84C2BBC4F2900FD0DE5 /* CardsViewMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = A880F84B2BBC4F2900FD0DE5 /* CardsViewMode.swift */; };
+		A880F84C2BBC4F2900FD0DE5 /* CardsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A880F84B2BBC4F2900FD0DE5 /* CardsViewModel.swift */; };
 		A880F84F2BBC4F9100FD0DE5 /* CardService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A880F84E2BBC4F9100FD0DE5 /* CardService.swift */; };
 		A880F8522BBC507600FD0DE5 /* MockData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A880F8512BBC507600FD0DE5 /* MockData.swift */; };
 		A880F8542BBC60F000FD0DE5 /* SwipeActionButtonsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A880F8532BBC60F000FD0DE5 /* SwipeActionButtonsView.swift */; };
@@ -38,6 +40,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		856DB9482BCF8C1400723BA4 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		85C0E4DF2BC08A8300FE5615 /* ContentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewModel.swift; sourceTree = "<group>"; };
 		85C0E4E22BC090F200FE5615 /* Help.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Help.swift; sourceTree = "<group>"; };
 		85C0E4E32BC090F200FE5615 /* PinterestLayoutDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PinterestLayoutDelegate.swift; sourceTree = "<group>"; };
@@ -62,7 +65,7 @@
 		A880F8412BBC4C0300FD0DE5 /* CardStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardStackView.swift; sourceTree = "<group>"; };
 		A880F8452BBC4E7300FD0DE5 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		A880F8482BBC4ECD00FD0DE5 /* CardModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardModel.swift; sourceTree = "<group>"; };
-		A880F84B2BBC4F2900FD0DE5 /* CardsViewMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsViewMode.swift; sourceTree = "<group>"; };
+		A880F84B2BBC4F2900FD0DE5 /* CardsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsViewModel.swift; sourceTree = "<group>"; };
 		A880F84E2BBC4F9100FD0DE5 /* CardService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardService.swift; sourceTree = "<group>"; };
 		A880F8512BBC507600FD0DE5 /* MockData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockData.swift; sourceTree = "<group>"; };
 		A880F8532BBC60F000FD0DE5 /* SwipeActionButtonsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeActionButtonsView.swift; sourceTree = "<group>"; };
@@ -75,6 +78,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				856DB9472BCF83B600723BA4 /* WaterfallGrid in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -129,6 +133,7 @@
 				A880F8272BBC23A700FD0DE5 /* Shared */,
 				A880F8282BBC23AE00FD0DE5 /* Utils */,
 				A880F81A2BBC208700FD0DE5 /* Assets.xcassets */,
+				856DB9482BCF8C1400723BA4 /* Constants.swift */,
 				A880F81C2BBC208700FD0DE5 /* Preview Content */,
 			);
 			path = TinderClone;
@@ -288,7 +293,7 @@
 		A880F84A2BBC4F1400FD0DE5 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				A880F84B2BBC4F2900FD0DE5 /* CardsViewMode.swift */,
+				A880F84B2BBC4F2900FD0DE5 /* CardsViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -333,6 +338,9 @@
 			dependencies = (
 			);
 			name = TinderClone;
+			packageProductDependencies = (
+				856DB9462BCF83B600723BA4 /* WaterfallGrid */,
+			);
 			productName = TinderClone;
 			productReference = A880F8132BBC208500FD0DE5 /* TinderClone.app */;
 			productType = "com.apple.product-type.application";
@@ -361,6 +369,9 @@
 				Base,
 			);
 			mainGroup = A880F80A2BBC208500FD0DE5;
+			packageReferences = (
+				856DB9452BCF83B600723BA4 /* XCRemoteSwiftPackageReference "WaterfallGrid" */,
+			);
 			productRefGroup = A880F8142BBC208500FD0DE5 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -410,9 +421,10 @@
 				A880F8332BBC2CC400FD0DE5 /* CardView.swift in Sources */,
 				A880F83C2BBC444C00FD0DE5 /* SizeConstants.swift in Sources */,
 				A880F8172BBC208500FD0DE5 /* TinderCloneApp.swift in Sources */,
-				A880F84C2BBC4F2900FD0DE5 /* CardsViewMode.swift in Sources */,
+				A880F84C2BBC4F2900FD0DE5 /* CardsViewModel.swift in Sources */,
 				A880F8352BBC304800FD0DE5 /* UserInfoView.swift in Sources */,
 				A880F8462BBC4E7300FD0DE5 /* User.swift in Sources */,
+				856DB9492BCF8C1400723BA4 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -618,6 +630,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		856DB9452BCF83B600723BA4 /* XCRemoteSwiftPackageReference "WaterfallGrid" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/paololeonardi/WaterfallGrid";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		856DB9462BCF83B600723BA4 /* WaterfallGrid */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 856DB9452BCF83B600723BA4 /* XCRemoteSwiftPackageReference "WaterfallGrid" */;
+			productName = WaterfallGrid;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = A880F80B2BBC208500FD0DE5 /* Project object */;
 }

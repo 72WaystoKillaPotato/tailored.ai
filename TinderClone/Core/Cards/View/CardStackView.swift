@@ -13,7 +13,7 @@ struct CardStackView: View {
     
     var body: some View {
         NavigationStack {
-            VStack(spacing: 10) {
+            VStack(spacing: 15) {
                 ZStack {
                     Text("no more outfits, sorry!").font(.title3).fontWeight(.medium).foregroundColor(Color(UIColor.systemGray)).multilineTextAlignment(.center)
                     ForEach(viewModel.cardModels) { card in
@@ -26,13 +26,13 @@ struct CardStackView: View {
                     SwipeActionButtonsView(viewModel: viewModel)
                 }
             }
-            .toolbar {
-                ToolbarItem(placement: .topBarLeading) {
-                    Text("Tailored.ai")
-                        .scaledToFill()
-                        .frame(width: 88)
-                }
-            }
+//            .toolbar {
+//                ToolbarItem(placement: .topBarLeading) {
+//                    Text("Tailored.ai")
+//                        .scaledToFill()
+//                        .frame(width: 88)
+//                }
+//            }
         }
     }
 }

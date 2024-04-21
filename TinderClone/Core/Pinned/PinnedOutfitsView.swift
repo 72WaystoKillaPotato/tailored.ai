@@ -10,33 +10,40 @@ import SwiftUI
 struct PinnedOutfitsView: View {
     
     @EnvironmentObject var contentViewModel: ContentViewModel
+        
+        // Calculate the columns
+        private func columnImages(column: Int) -> [String] {
+            let indices = stride(from: column, to: contentViewModel.likedCardsModels.count, by: 2)
+            return indices.map { index in
+                contentViewModel.likedCardsModels[index].user.profileImageURL.first ?? ""
+            }
+        }
 
     var body: some View {
-            VStack {
-                // Iterate over each CardModel in likedCardsModels
-                ForEach(contentViewModel.likedCardsModels, id: \.id) { cardModel in
-                    // Now create a sub VStack for each user's images
-                    VStack(alignment: .leading, spacing: 10) {
-                        // Optionally, display the user's description or any other info
-                        Text(cardModel.user.description)
-                            .font(.headline)
-                            .padding(.bottom, 5)
-                        
-                        // Iterate over each image URL in the user's profileImageURL
-                        ForEach(cardModel.user.profileImageURL, id: \.self) { imageName in
-                            Image(imageName) // Assuming these are image names in your assets
+        ScrollView(.vertical, showsIndicators: false) {
+            HStack(alignment: .top, spacing: 16) {
+                ForEach(0..<2, id: \.self) { column in
+                    VStack(spacing: 16) {
+                        ForEach(columnImages(column: column), id: \.self) { imageUrl in
+                            Image(imageUrl)
                                 .resizable()
-                                .scaledToFit()
-                                .cornerRadius(10)
+                                .scaledToFill()
+                                .frame(width: (UIScreen.main.bounds.width / 2) - 20) // Set width dynamically and max height to 300
+                                .frame(maxHeight: 300)
+                                .clipped()
+                                .cornerRadius(15)
                         }
                     }
-                    .padding(.bottom, 20) // Add some padding below each user's stack of images
                 }
             }
-            .padding() // Add padding around the entire VStack
+            .padding(.horizontal)
         }
+    }
 }
 
-#Preview {
-    PinnedOutfitsView()
+struct PinnedOutfitsView_Previews: PreviewProvider {
+    static var previews: some View {
+        PinnedOutfitsView()
+            .environmentObject(ContentViewModel.mockSavedOutfits) // Make sure to provide a mock or an actual instance
+    }
 }
