@@ -33,7 +33,7 @@ struct SwipeActionButtonsView: View {
             } label: {
                 Image(systemName: "pin.fill")
                     .fontWeight(.heavy)
-                    .foregroundStyle(.green)
+                    .foregroundStyle(Color("colors/blue"))
                     .background {
                         Circle()
                             .fill(.white)

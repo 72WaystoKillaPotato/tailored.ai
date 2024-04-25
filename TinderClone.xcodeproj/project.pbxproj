@@ -7,8 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		856DB9472BCF83B600723BA4 /* WaterfallGrid in Frameworks */ = {isa = PBXBuildFile; productRef = 856DB9462BCF83B600723BA4 /* WaterfallGrid */; };
 		856DB9492BCF8C1400723BA4 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 856DB9482BCF8C1400723BA4 /* Constants.swift */; };
+		856DB9532BDA182200723BA4 /* AdvancedList in Frameworks */ = {isa = PBXBuildFile; productRef = 856DB9522BDA182200723BA4 /* AdvancedList */; };
+		856DB9552BDA223F00723BA4 /* Measurement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 856DB9542BDA223F00723BA4 /* Measurement.swift */; };
+		856DB9572BDA273900723BA4 /* UserMeasurementsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 856DB9562BDA273900723BA4 /* UserMeasurementsViewModel.swift */; };
 		85C0E4E02BC08A8300FE5615 /* ContentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85C0E4DF2BC08A8300FE5615 /* ContentViewModel.swift */; };
 		85C0E4E92BC090F300FE5615 /* Help.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85C0E4E22BC090F200FE5615 /* Help.swift */; };
 		85C0E4EA2BC090F300FE5615 /* PinterestLayoutDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85C0E4E32BC090F200FE5615 /* PinterestLayoutDelegate.swift */; };
@@ -41,6 +43,8 @@
 
 /* Begin PBXFileReference section */
 		856DB9482BCF8C1400723BA4 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		856DB9542BDA223F00723BA4 /* Measurement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Measurement.swift; sourceTree = "<group>"; };
+		856DB9562BDA273900723BA4 /* UserMeasurementsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserMeasurementsViewModel.swift; sourceTree = "<group>"; };
 		85C0E4DF2BC08A8300FE5615 /* ContentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewModel.swift; sourceTree = "<group>"; };
 		85C0E4E22BC090F200FE5615 /* Help.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Help.swift; sourceTree = "<group>"; };
 		85C0E4E32BC090F200FE5615 /* PinterestLayoutDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PinterestLayoutDelegate.swift; sourceTree = "<group>"; };
@@ -78,13 +82,22 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				856DB9472BCF83B600723BA4 /* WaterfallGrid in Frameworks */,
+				856DB9532BDA182200723BA4 /* AdvancedList in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		856DB94C2BDA113100723BA4 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				856DB9542BDA223F00723BA4 /* Measurement.swift */,
+				856DB9562BDA273900723BA4 /* UserMeasurementsViewModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		85C0E4E12BC090E100FE5615 /* PinterestLayout */ = {
 			isa = PBXGroup;
 			children = (
@@ -129,7 +142,6 @@
 			children = (
 				A880F8242BBC239400FD0DE5 /* App */,
 				A880F8252BBC239A00FD0DE5 /* Core */,
-				A880F8262BBC23A100FD0DE5 /* Extensions */,
 				A880F8272BBC23A700FD0DE5 /* Shared */,
 				A880F8282BBC23AE00FD0DE5 /* Utils */,
 				A880F81A2BBC208700FD0DE5 /* Assets.xcassets */,
@@ -161,20 +173,11 @@
 			children = (
 				85C0E4EF2BC093FA00FE5615 /* Pinned */,
 				A880F82C2BBC23E700FD0DE5 /* Cards */,
-				A880F82B2BBC23E100FD0DE5 /* Messaging */,
 				A880F82A2BBC23DC00FD0DE5 /* Profile */,
 				A880F8292BBC23D900FD0DE5 /* Root */,
-				A880F82D2BBC23F200FD0DE5 /* Search */,
 				A880F82E2BBC242600FD0DE5 /* TabBar */,
 			);
 			path = Core;
-			sourceTree = "<group>";
-		};
-		A880F8262BBC23A100FD0DE5 /* Extensions */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Extensions;
 			sourceTree = "<group>";
 		};
 		A880F8272BBC23A700FD0DE5 /* Shared */ = {
@@ -205,16 +208,10 @@
 		A880F82A2BBC23DC00FD0DE5 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
+				856DB94C2BDA113100723BA4 /* Model */,
 				A880F8572BBEEA6400FD0DE5 /* View */,
 			);
 			path = Profile;
-			sourceTree = "<group>";
-		};
-		A880F82B2BBC23E100FD0DE5 /* Messaging */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Messaging;
 			sourceTree = "<group>";
 		};
 		A880F82C2BBC23E700FD0DE5 /* Cards */ = {
@@ -226,13 +223,6 @@
 				A880F84A2BBC4F1400FD0DE5 /* ViewModel */,
 			);
 			path = Cards;
-			sourceTree = "<group>";
-		};
-		A880F82D2BBC23F200FD0DE5 /* Search */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Search;
 			sourceTree = "<group>";
 		};
 		A880F82E2BBC242600FD0DE5 /* TabBar */ = {
@@ -339,7 +329,7 @@
 			);
 			name = TinderClone;
 			packageProductDependencies = (
-				856DB9462BCF83B600723BA4 /* WaterfallGrid */,
+				856DB9522BDA182200723BA4 /* AdvancedList */,
 			);
 			productName = TinderClone;
 			productReference = A880F8132BBC208500FD0DE5 /* TinderClone.app */;
@@ -370,7 +360,7 @@
 			);
 			mainGroup = A880F80A2BBC208500FD0DE5;
 			packageReferences = (
-				856DB9452BCF83B600723BA4 /* XCRemoteSwiftPackageReference "WaterfallGrid" */,
+				856DB9512BDA182200723BA4 /* XCRemoteSwiftPackageReference "AdvancedList" */,
 			);
 			productRefGroup = A880F8142BBC208500FD0DE5 /* Products */;
 			projectDirPath = "";
@@ -411,6 +401,7 @@
 				A880F8562BBC625900FD0DE5 /* SwipeAction.swift in Sources */,
 				A880F8302BBC26F100FD0DE5 /* TabBarView.swift in Sources */,
 				A880F8402BBC492600FD0DE5 /* CardImageIndicatorView.swift in Sources */,
+				856DB9572BDA273900723BA4 /* UserMeasurementsViewModel.swift in Sources */,
 				A880F8542BBC60F000FD0DE5 /* SwipeActionButtonsView.swift in Sources */,
 				85C0E4ED2BC090F300FE5615 /* PinterestLayoutAttributes.swift in Sources */,
 				85C0E4E92BC090F300FE5615 /* Help.swift in Sources */,
@@ -424,6 +415,7 @@
 				A880F84C2BBC4F2900FD0DE5 /* CardsViewModel.swift in Sources */,
 				A880F8352BBC304800FD0DE5 /* UserInfoView.swift in Sources */,
 				A880F8462BBC4E7300FD0DE5 /* User.swift in Sources */,
+				856DB9552BDA223F00723BA4 /* Measurement.swift in Sources */,
 				856DB9492BCF8C1400723BA4 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -561,6 +553,7 @@
 				DEVELOPMENT_TEAM = MZK45Q4L6T;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = Tailored.ai;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -590,6 +583,7 @@
 				DEVELOPMENT_TEAM = MZK45Q4L6T;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = Tailored.ai;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -632,21 +626,21 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		856DB9452BCF83B600723BA4 /* XCRemoteSwiftPackageReference "WaterfallGrid" */ = {
+		856DB9512BDA182200723BA4 /* XCRemoteSwiftPackageReference "AdvancedList" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/paololeonardi/WaterfallGrid";
+			repositoryURL = "https://github.com/crelies/AdvancedList";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 1.0.1;
+				minimumVersion = 8.0.0;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		856DB9462BCF83B600723BA4 /* WaterfallGrid */ = {
+		856DB9522BDA182200723BA4 /* AdvancedList */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 856DB9452BCF83B600723BA4 /* XCRemoteSwiftPackageReference "WaterfallGrid" */;
-			productName = WaterfallGrid;
+			package = 856DB9512BDA182200723BA4 /* XCRemoteSwiftPackageReference "AdvancedList" */;
+			productName = AdvancedList;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

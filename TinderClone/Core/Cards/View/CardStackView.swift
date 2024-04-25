@@ -26,13 +26,6 @@ struct CardStackView: View {
                     SwipeActionButtonsView(viewModel: viewModel)
                 }
             }
-//            .toolbar {
-//                ToolbarItem(placement: .topBarLeading) {
-//                    Text("Tailored.ai")
-//                        .scaledToFill()
-//                        .frame(width: 88)
-//                }
-//            }
         }
     }
 }

@@ -29,8 +29,6 @@ struct CardView: View {
                         ImageScrollingOverlay(currentImageIndex: $currentImageIndex, imageCount: imageCount)
                     }
                 
-                CardImageIndicatorView(currentImageIndex: currentImageIndex, imageCount: imageCount)
-                
                 SwipeActionIndicatorView(xOffset: $xOffset)
 
             }
@@ -38,9 +36,9 @@ struct CardView: View {
             UserInfoView(showProfileModal: $showProfileModal, user: user)
 
         }
-        .fullScreenCover(isPresented: $showProfileModal) {
-            UserProfileView(user: user)
-        }
+//        .fullScreenCover(isPresented: $showProfileModal) {
+//            UserProfileView(user: user)
+//        }
         .onReceive(viewModel.$buttonSwipeAction, perform: { action in
             onReceiveSwiperAction(action)
         })

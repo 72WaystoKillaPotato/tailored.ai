@@ -11,31 +11,40 @@ struct TabBarView: View {
     @State private var selectedTab = 1  // Default to the tab with tag 1
 
     var body: some View {
-        TabView(selection: $selectedTab) {
+        NavigationStack{
+            TabView(selection: $selectedTab) {
                 PinnedOutfitsView()
-                   
-            .tabItem {
-                Label("Outfits", systemImage: "pin")
-            }
-            .tag(0)
-            
-            
+                
+                    .tabItem {
+                        Label("Outfits", systemImage: "pin")
+                    }
+                    .tag(0)
+                
+                
                 CardStackView()
-                    
-            .tabItem {
-                Label("Favorites", systemImage: "heart")
+                
+                    .tabItem {
+                        Label("Exlore", systemImage: "heart")
+                    }
+                    .tag(1)
+                
+                
+                UserProfileView()
+                
+                    .tabItem {
+                        Label("Profile", systemImage: "person")
+                    }
+                    .tag(2)
             }
-            .tag(1)
-            
-            
-                Text("Profile Page Content")
-                    
-            .tabItem {
-                Label("Profile", systemImage: "person")
+            .tint(.primary)
+            .navigationBarTitleDisplayMode(.inline)
+            .toolbar {
+                ToolbarItem(placement: .principal) {
+                        Image("inAppIcon").resizable()
+                            .scaledToFit()
+                    }
             }
-            .tag(2)
         }
-        .tint(.primary)
     }
 }
 

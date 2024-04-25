@@ -1,59 +1,67 @@
-//
-//  UserProfileView.swift
-//  TinderClone
-//
-//  Created by Tomáš Duchoslav on 04.04.2024.
-//
-
 import SwiftUI
+import AdvancedList
 
-struct UserProfileView: View {
-    
-    @Environment(\.dismiss) var dismiss
-    @State private var currentImageIndex = 0
-    
-    let user: User
-    
+struct MeasurementRow: View {
+    var attribute: String
+    @Binding var value: String
+    @FocusState var focusedField: String?
+
     var body: some View {
-        VStack {
-            HStack {
-                Text(user.description)
-                    .font(.title2)
-                    .fontWeight(.semibold)
-                
-                Spacer()
-                
-                Button {
-                    dismiss()
-                } label: {
-                    Image(systemName: "arrow.down.circle.fill")
-                        .imageScale(.large)
-                        .fontWeight(.bold)
-                        .foregroundStyle(.pink)
-                }
-            }
-            .padding(.horizontal)
-            
-            ScrollView {
-                VStack {
-                    ZStack(alignment: .top) {
-                        Image(user.profileImageURL[currentImageIndex])
-                            .resizable()
-                            .scaledToFill()
-                            .frame(height: SizeConstants.cardHeight)
-                            .overlay {
-                                ImageScrollingOverlay(currentImageIndex: $currentImageIndex, imageCount: user.profileImageURL.count)
-                                
-                            }
-                        
-                        CardImageIndicatorView(currentImageIndex: currentImageIndex, imageCount: user.profileImageURL.count)
+        HStack {
+            Text("\(attribute):")
+                .foregroundColor(.gray)
+            Spacer()
+            TextField("Enter \(attribute)", text: $value)
+                .focused($focusedField, equals: attribute)
+                .onChange(of: focusedField) {
+                    // This closure will be called whenever the focus state changes.
+                    if focusedField != attribute {
+                        // The TextField lost focus, save the data
+                        print("Saving data for \(attribute)")
+                        // Implement the save action here, such as updating the ViewModel or model.
                     }
                 }
-            }
         }
     }
 }
 
-#Preview {
-    UserProfileView(user: MockData.users[0])
+struct UserProfileView: View {
+    @StateObject var viewModel = UserMeasurementsViewModel()
+    @State private var searchText = ""
+    @State private var showingAddMeasurementView = false
+
+    var body: some View {
+        NavigationView {
+            AdvancedList(viewModel.filteredMeasurements, content: { measurement in
+                MeasurementRow(attribute: measurement.id, value: .init(
+                    get: { measurement.value },
+                    set: { viewModel.measurements[measurement.id] = $0 }
+                ))
+            }, listState: .items, emptyStateView: {
+                Text("No data")
+            }, errorStateView: { error in
+                Text("An error occurred: \(error.localizedDescription)")
+            }, loadingStateView: {
+                Text("Loading...")
+            })
+            .onDelete { indexSet in
+                deleteMeasurement(at: indexSet)
+            }
+            .searchable(text: $viewModel.searchText) // Provided by SwiftUI, not AdvancedList
+        }
+    }
+    // Delete measurements based on the index set
+        func deleteMeasurement(at offsets: IndexSet) {
+            offsets.forEach { index in
+                let measurementID = viewModel.filteredMeasurements[index].id
+                viewModel.measurements.removeValue(forKey: measurementID)
+            }
+            // Call any additional functions if necessary to save changes, update views, etc.
+        }
+}
+
+struct UserProfileView_Previews: PreviewProvider {
+    static var previews: some View {
+        UserProfileView()
+    }
 }
