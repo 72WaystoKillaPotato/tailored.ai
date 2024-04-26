@@ -11,6 +11,7 @@
 		856DB9532BDA182200723BA4 /* AdvancedList in Frameworks */ = {isa = PBXBuildFile; productRef = 856DB9522BDA182200723BA4 /* AdvancedList */; };
 		856DB9552BDA223F00723BA4 /* Measurement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 856DB9542BDA223F00723BA4 /* Measurement.swift */; };
 		856DB9572BDA273900723BA4 /* UserMeasurementsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 856DB9562BDA273900723BA4 /* UserMeasurementsViewModel.swift */; };
+		856DB9592BDB23CE00723BA4 /* OutfitDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 856DB9582BDB23CE00723BA4 /* OutfitDetailView.swift */; };
 		85C0E4E02BC08A8300FE5615 /* ContentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85C0E4DF2BC08A8300FE5615 /* ContentViewModel.swift */; };
 		85C0E4E92BC090F300FE5615 /* Help.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85C0E4E22BC090F200FE5615 /* Help.swift */; };
 		85C0E4EA2BC090F300FE5615 /* PinterestLayoutDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85C0E4E32BC090F200FE5615 /* PinterestLayoutDelegate.swift */; };
@@ -45,6 +46,7 @@
 		856DB9482BCF8C1400723BA4 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		856DB9542BDA223F00723BA4 /* Measurement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Measurement.swift; sourceTree = "<group>"; };
 		856DB9562BDA273900723BA4 /* UserMeasurementsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserMeasurementsViewModel.swift; sourceTree = "<group>"; };
+		856DB9582BDB23CE00723BA4 /* OutfitDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutfitDetailView.swift; sourceTree = "<group>"; };
 		85C0E4DF2BC08A8300FE5615 /* ContentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewModel.swift; sourceTree = "<group>"; };
 		85C0E4E22BC090F200FE5615 /* Help.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Help.swift; sourceTree = "<group>"; };
 		85C0E4E32BC090F200FE5615 /* PinterestLayoutDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PinterestLayoutDelegate.swift; sourceTree = "<group>"; };
@@ -116,6 +118,7 @@
 			isa = PBXGroup;
 			children = (
 				85C0E4F02BC0941B00FE5615 /* PinnedOutfitsView.swift */,
+				856DB9582BDB23CE00723BA4 /* OutfitDetailView.swift */,
 			);
 			path = Pinned;
 			sourceTree = "<group>";
@@ -398,6 +401,7 @@
 				A880F8192BBC208500FD0DE5 /* ContentView.swift in Sources */,
 				A880F8372BBC394F00FD0DE5 /* SwipeActionIndicatorView.swift in Sources */,
 				A880F8522BBC507600FD0DE5 /* MockData.swift in Sources */,
+				856DB9592BDB23CE00723BA4 /* OutfitDetailView.swift in Sources */,
 				A880F8562BBC625900FD0DE5 /* SwipeAction.swift in Sources */,
 				A880F8302BBC26F100FD0DE5 /* TabBarView.swift in Sources */,
 				A880F8402BBC492600FD0DE5 /* CardImageIndicatorView.swift in Sources */,

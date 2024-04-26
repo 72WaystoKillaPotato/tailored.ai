@@ -12,8 +12,17 @@ class UserMeasurementsViewModel: ObservableObject {
     @Published var measurements: [String: String] = [
         "Waist": "30 inches",
         "Height": "165 cm",
+        "Weight": "100 lbs",
         "Arm Length": "34 inches",
-        "bust": ""
+        "Hips": "",
+        "Bust": "",
+        "Neck": "",
+        "Shoulder": "",
+        "Back Width": "",
+        "Inseam": "",
+        "Thigh": "",
+        "Knee": "",
+        "Leg": "",
     ]
     @Published var searchText = ""
 

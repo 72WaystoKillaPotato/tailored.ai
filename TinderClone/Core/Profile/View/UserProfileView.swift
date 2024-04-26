@@ -27,37 +27,92 @@ struct MeasurementRow: View {
 
 struct UserProfileView: View {
     @StateObject var viewModel = UserMeasurementsViewModel()
-    @State private var searchText = ""
     @State private var showingAddMeasurementView = false
 
     var body: some View {
         NavigationView {
-            AdvancedList(viewModel.filteredMeasurements, content: { measurement in
-                MeasurementRow(attribute: measurement.id, value: .init(
-                    get: { measurement.value },
-                    set: { viewModel.measurements[measurement.id] = $0 }
-                ))
-            }, listState: .items, emptyStateView: {
-                Text("No data")
-            }, errorStateView: { error in
-                Text("An error occurred: \(error.localizedDescription)")
-            }, loadingStateView: {
-                Text("Loading...")
-            })
-            .onDelete { indexSet in
-                deleteMeasurement(at: indexSet)
+            VStack {
+                AdvancedList(viewModel.filteredMeasurements, content: { measurement in
+                    MeasurementRow(attribute: measurement.id, value: Binding(
+                        get: { self.viewModel.measurements[measurement.id, default: ""] },
+                        set: { self.viewModel.measurements[measurement.id] = $0 }
+                    ))
+                }, listState: .items, emptyStateView: {
+                    Text("No data")
+                }, errorStateView: { error in
+                    Text("An error occurred: \(error.localizedDescription)")
+                }, loadingStateView: {
+                    Text("Loading...")
+                })
+                .onDelete { indexSet in
+                                deleteMeasurement(at: indexSet)
+                            }
+                .searchable(text: $viewModel.searchText)
+                
+                Button("Add Custom Measurement") {
+                    showingAddMeasurementView = true
+                }
+                .padding()
+                .background(Color("colors/blue"))
+                .foregroundColor(.white)
+                .cornerRadius(8)
+                .padding()
+                .sheet(isPresented: $showingAddMeasurementView) {
+                    AddMeasurementView(viewModel: viewModel)
+                }
             }
-            .searchable(text: $viewModel.searchText) // Provided by SwiftUI, not AdvancedList
+            .navigationTitle("Your Measurements")
+            .navigationBarTitleDisplayMode(.inline)
         }
     }
+    
     // Delete measurements based on the index set
-        func deleteMeasurement(at offsets: IndexSet) {
-            offsets.forEach { index in
-                let measurementID = viewModel.filteredMeasurements[index].id
-                viewModel.measurements.removeValue(forKey: measurementID)
-            }
-            // Call any additional functions if necessary to save changes, update views, etc.
+    func deleteMeasurement(at offsets: IndexSet) {
+        offsets.forEach { index in
+            let measurementID = viewModel.filteredMeasurements[index].id
+            viewModel.measurements.removeValue(forKey: measurementID)
         }
+    }
+}
+
+struct AddMeasurementView: View {
+    @ObservedObject var viewModel: UserMeasurementsViewModel
+    @State private var newAttribute = ""
+    @State private var newValue = ""
+    @Environment(\.presentationMode) var presentationMode
+
+    var body: some View {
+        NavigationView {
+            VStack{
+                Form {
+                    TextField("Attribute (e.g., 'Arm Length')", text: $newAttribute)
+                    TextField("Value (e.g., '34 inches')", text: $newValue)
+                }
+                Button("Add") {
+                    guard !newAttribute.isEmpty && !newValue.isEmpty else { return }
+                    saveData()
+                    // Reset fields after adding
+                    newAttribute = ""
+                    newValue = ""
+                    // Optionally dismiss the view or keep it for further additions
+                    presentationMode.wrappedValue.dismiss()
+                }
+                .disabled(newAttribute.isEmpty || newValue.isEmpty)
+            }
+            .navigationTitle("Add New Measurement")
+            .navigationBarItems(leading: Button("Cancel") {
+                // Simply dismiss the view
+                presentationMode.wrappedValue.dismiss()
+            })
+        }
+    }
+    
+    func saveData() {
+        // Here you could write to UserDefaults, send to a server, or update a local database
+        // For demonstration, print the measurements to the console
+        viewModel.measurements[newAttribute] = newValue
+        print("Saving Data: \(viewModel.measurements)")
+    }
 }
 
 struct UserProfileView_Previews: PreviewProvider {
