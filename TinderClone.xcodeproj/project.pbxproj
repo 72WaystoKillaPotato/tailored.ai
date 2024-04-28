@@ -40,6 +40,7 @@
 		A880F8542BBC60F000FD0DE5 /* SwipeActionButtonsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A880F8532BBC60F000FD0DE5 /* SwipeActionButtonsView.swift */; };
 		A880F8562BBC625900FD0DE5 /* SwipeAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = A880F8552BBC625900FD0DE5 /* SwipeAction.swift */; };
 		A880F8592BBEEA7800FD0DE5 /* UserProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A880F8582BBEEA7800FD0DE5 /* UserProfileView.swift */; };
+		BCC549732BDF068500FA7B9F /* PhotoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCC549722BDF068500FA7B9F /* PhotoView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -77,6 +78,7 @@
 		A880F8532BBC60F000FD0DE5 /* SwipeActionButtonsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeActionButtonsView.swift; sourceTree = "<group>"; };
 		A880F8552BBC625900FD0DE5 /* SwipeAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeAction.swift; sourceTree = "<group>"; };
 		A880F8582BBEEA7800FD0DE5 /* UserProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileView.swift; sourceTree = "<group>"; };
+		BCC549722BDF068500FA7B9F /* PhotoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -319,6 +321,7 @@
 		BCC549712BDEFB3900FA7B9F /* Photo */ = {
 			isa = PBXGroup;
 			children = (
+				BCC549722BDF068500FA7B9F /* PhotoView.swift */,
 			);
 			path = Photo;
 			sourceTree = "<group>";
@@ -426,6 +429,7 @@
 				A880F8172BBC208500FD0DE5 /* TinderCloneApp.swift in Sources */,
 				A880F84C2BBC4F2900FD0DE5 /* CardsViewModel.swift in Sources */,
 				A880F8352BBC304800FD0DE5 /* UserInfoView.swift in Sources */,
+				BCC549732BDF068500FA7B9F /* PhotoView.swift in Sources */,
 				A880F8462BBC4E7300FD0DE5 /* User.swift in Sources */,
 				856DB9552BDA223F00723BA4 /* Measurement.swift in Sources */,
 				856DB9492BCF8C1400723BA4 /* Constants.swift in Sources */,
