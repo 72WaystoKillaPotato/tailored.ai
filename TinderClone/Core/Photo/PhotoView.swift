@@ -19,10 +19,22 @@ struct PhotoView: View {
                     currentSelection = "Selfie"
                     showingImagePicker = true
                 }
+                .padding()
+                .background(Color("colors/blue"))
+                .foregroundColor(.white)
+                .cornerRadius(8)
+                .padding()
+                
                 Button("Choose Clothing") {
                     currentSelection = "Clothing"
                     showingImagePicker = true
                 }
+                .padding()
+                .background(Color("colors/blue"))
+                .foregroundColor(.white)
+                .cornerRadius(8)
+                .padding()
+                
             }
             .sheet(isPresented: $showingImagePicker, onDismiss: loadImage) {
                 ImagePicker(image: self.$inputImage)
