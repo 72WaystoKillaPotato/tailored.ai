@@ -41,6 +41,7 @@
 		A880F8562BBC625900FD0DE5 /* SwipeAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = A880F8552BBC625900FD0DE5 /* SwipeAction.swift */; };
 		A880F8592BBEEA7800FD0DE5 /* UserProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A880F8582BBEEA7800FD0DE5 /* UserProfileView.swift */; };
 		BCC549732BDF068500FA7B9F /* PhotoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCC549722BDF068500FA7B9F /* PhotoView.swift */; };
+		BCC549752BDF074F00FA7B9F /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCC549742BDF074F00FA7B9F /* ImagePicker.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -79,6 +80,7 @@
 		A880F8552BBC625900FD0DE5 /* SwipeAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeAction.swift; sourceTree = "<group>"; };
 		A880F8582BBEEA7800FD0DE5 /* UserProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileView.swift; sourceTree = "<group>"; };
 		BCC549722BDF068500FA7B9F /* PhotoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoView.swift; sourceTree = "<group>"; };
+		BCC549742BDF074F00FA7B9F /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -322,6 +324,7 @@
 			isa = PBXGroup;
 			children = (
 				BCC549722BDF068500FA7B9F /* PhotoView.swift */,
+				BCC549742BDF074F00FA7B9F /* ImagePicker.swift */,
 			);
 			path = Photo;
 			sourceTree = "<group>";
@@ -415,6 +418,7 @@
 				856DB9592BDB23CE00723BA4 /* OutfitDetailView.swift in Sources */,
 				A880F8562BBC625900FD0DE5 /* SwipeAction.swift in Sources */,
 				A880F8302BBC26F100FD0DE5 /* TabBarView.swift in Sources */,
+				BCC549752BDF074F00FA7B9F /* ImagePicker.swift in Sources */,
 				A880F8402BBC492600FD0DE5 /* CardImageIndicatorView.swift in Sources */,
 				856DB9572BDA273900723BA4 /* UserMeasurementsViewModel.swift in Sources */,
 				A880F8542BBC60F000FD0DE5 /* SwipeActionButtonsView.swift in Sources */,

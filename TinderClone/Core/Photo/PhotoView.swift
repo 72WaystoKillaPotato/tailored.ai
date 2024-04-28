@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ContentView: View {
+struct PhotoView: View {
     @State private var showingImagePicker = false
     @State private var inputImage: UIImage?
     @State private var currentSelection: String = ""

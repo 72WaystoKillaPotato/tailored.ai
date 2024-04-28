@@ -35,6 +35,12 @@ struct TabBarView: View {
                         Label("Profile", systemImage: "person")
                     }
                     .tag(2)
+                PhotoView()
+                
+                    .tabItem {
+                        Label("Fit Room", systemImage: "camera")
+                    }
+                    .tag(3)
             }
             .tint(.primary)
             .navigationBarTitleDisplayMode(.inline)
