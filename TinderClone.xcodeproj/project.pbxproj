@@ -174,6 +174,7 @@
 		A880F8252BBC239A00FD0DE5 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				BCC549712BDEFB3900FA7B9F /* Photo */,
 				85C0E4EF2BC093FA00FE5615 /* Pinned */,
 				A880F82C2BBC23E700FD0DE5 /* Cards */,
 				A880F82A2BBC23DC00FD0DE5 /* Profile */,
@@ -313,6 +314,13 @@
 				A880F8582BBEEA7800FD0DE5 /* UserProfileView.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		BCC549712BDEFB3900FA7B9F /* Photo */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Photo;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -554,7 +562,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"TinderClone/Preview Content\"";
-				DEVELOPMENT_TEAM = MZK45Q4L6T;
+				DEVELOPMENT_TEAM = FC47US8TKH;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = Tailored.ai;
@@ -563,12 +571,13 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.samsu.tailoredai;
+				PRODUCT_BUNDLE_IDENTIFIER = com.samsu.tailoredai1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -584,7 +593,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"TinderClone/Preview Content\"";
-				DEVELOPMENT_TEAM = MZK45Q4L6T;
+				DEVELOPMENT_TEAM = FC47US8TKH;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = Tailored.ai;
@@ -593,12 +602,13 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.samsu.tailoredai;
+				PRODUCT_BUNDLE_IDENTIFIER = com.samsu.tailoredai1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
