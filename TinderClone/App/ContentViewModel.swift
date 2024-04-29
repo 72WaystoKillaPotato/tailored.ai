@@ -8,7 +8,43 @@
 import SwiftUI
 
 class ContentViewModel: ObservableObject {
-    @Published var likedCardsModels: [CardModel] = [] // Add this line to store liked models
+    @Published var likedCardsModels: [CardModel] = []  { // Add this line to store liked models
+        didSet {
+            saveLikedCardsModels()
+        }
+    }
+    
+    
+    private let plistFile = "LikedCards.plist"
+    
+    init() {
+        loadLikedCardsModels()
+    }
+    
+    private func saveLikedCardsModels() {
+        guard let plistURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first?.appendingPathComponent(plistFile) else {
+            return
+        }
+        
+        do {
+            let plistData = try PropertyListEncoder().encode(likedCardsModels)
+            try plistData.write(to: plistURL)
+        } catch {
+            print("Error saving likedCardsModels: \(error)")
+        }
+    }
+    
+    private func loadLikedCardsModels() {
+        guard let plistURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first?.appendingPathComponent(plistFile) else {
+            return
+        }
+        do {
+            let plistData = try Data(contentsOf: plistURL)
+            likedCardsModels = try PropertyListDecoder().decode([CardModel].self, from: plistData)
+        } catch {
+            print("Error Loading likedCardsModels: \(error)")
+        }
+    }
     
     static var mockSavedOutfits: ContentViewModel {
         let model = ContentViewModel()
@@ -30,7 +66,7 @@ class ContentViewModel: ObservableObject {
                 profileImageURL: ["outfits/3"]
             )
         ]
-        model.likedCardsModels = users.map({ CardModel(user: $0) })
+        model.likedCardsModels = users.map { CardModel(user: $0) }
         return model
     }
 }

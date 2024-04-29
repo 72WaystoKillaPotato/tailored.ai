@@ -133,5 +133,5 @@ private extension CardView {
 
 #Preview {
     CardView(viewModel: CardsViewModel(service: CardService()),
-             model: CardModel(user: MockData.users[0]))
+             model: try! CardModel(from: MockData.users[0] as! Decoder))
 }

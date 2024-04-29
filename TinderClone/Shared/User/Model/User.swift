@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct User: Identifiable, Hashable {
+struct User: Identifiable, Hashable, Codable {
     let id: String
     let description: String
     var profileImageURL: [String]
