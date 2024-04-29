@@ -23,8 +23,18 @@ class UserMeasurementsViewModel: ObservableObject {
         "Thigh": "",
         "Knee": "",
         "Leg": "",
-    ]
+    ] {
+        didSet {
+            saveMeasurements()
+        }
+    }
     @Published var searchText = ""
+    
+    private let measurementsKey = "UserMeasurements"
+
+        init() {
+            loadMeasurements()
+        }
 
     // Computed property that filters measurements based on search text
     var filteredMeasurements: [Measurement] {
@@ -43,5 +53,17 @@ class UserMeasurementsViewModel: ObservableObject {
         
         // Map to Measurement objects for the list
         return sortedMeasurements.map { Measurement(id: $0.key, value: $0.value) }
+    }
+    
+    // Load measurements from UserDefaults
+    private func loadMeasurements() {
+        if let savedMeasurements = UserDefaults.standard.dictionary(forKey: measurementsKey) as? [String: String] {
+            measurements = savedMeasurements
+        }
+    }
+
+    // Save measurements to UserDefaults
+    private func saveMeasurements() {
+        UserDefaults.standard.set(measurements, forKey: measurementsKey)
     }
 }
