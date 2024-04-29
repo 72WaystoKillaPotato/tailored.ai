@@ -10,33 +10,71 @@ import Foundation
 
 struct PhotoView: View {
     @State private var showingImagePicker = false
+    @State private var selfieImage: UIImage?
+    @State private var clothingImage: UIImage?
     @State private var inputImage: UIImage?
     @State private var processedImage: UIImage?
     @State private var currentSelection: String = ""
+    @State private var isProcessing = false
 
     var body: some View {
         NavigationView {
             VStack {
-                Button("Take Selfie") {
-                    currentSelection = "Selfie"
-                    showingImagePicker = true
+                Button("Process Images") {
+                    isProcessing = true
+                    startProcessingImages()
                 }
+                .disabled(selfieImage == nil || clothingImage == nil)
                 .padding()
                 .background(Color("colors/blue"))
                 .foregroundColor(.white)
                 .cornerRadius(8)
                 .padding()
-                
-                Button("Choose Clothing") {
-                    currentSelection = "Clothing"
-                    showingImagePicker = true
+
+                if isProcessing {
+                    ProgressView("Processing...")
+                } else if let processedImage = processedImage {
+                    Image(uiImage: processedImage)
+                        .resizable()
+                        .scaledToFit()
+                        .frame(maxWidth: .infinity)
                 }
-                .padding()
-                .background(Color("colors/blue"))
-                .foregroundColor(.white)
-                .cornerRadius(8)
-                .padding()
                 
+                if let selfieImage = selfieImage {
+                    Image(uiImage: selfieImage)
+                        .resizable()
+                        .scaledToFit()
+                        .frame(height: 100)
+                        .padding()
+                } else {
+                    Button("Take Selfie") {
+                        currentSelection = "Selfie"
+                        showingImagePicker = true
+                    }
+                    .padding()
+                    .background(Color("colors/blue"))
+                    .foregroundColor(.white)
+                    .cornerRadius(8)
+                    .padding()
+                }
+                
+                if let clothingImage = clothingImage {
+                    Image(uiImage: clothingImage)
+                        .resizable()
+                        .scaledToFit()
+                        .frame(height: 100)
+                        .padding()
+                } else {
+                    Button("Choose Clothing") {
+                        currentSelection = "Clothing"
+                        showingImagePicker = true
+                    }
+                    .padding()
+                    .background(Color("colors/blue"))
+                    .foregroundColor(.white)
+                    .cornerRadius(8)
+                    .padding()
+                }
             }
             .sheet(isPresented: $showingImagePicker, onDismiss: loadImage) {
                 ImagePicker(image: self.$inputImage)
@@ -82,6 +120,18 @@ struct PhotoView: View {
         }
         task.resume()
     }
+    
+    func startProcessingImages() {
+            guard let selfieData = selfieImage?.jpegData(compressionQuality: 0.8),
+                  let clothingData = clothingImage?.jpegData(compressionQuality: 0.8) else { return }
+
+            // Combine both image data and send to backend
+            // Simulate processing delay
+            DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                self.processedImage = UIImage(systemName: "checkmark.circle.fill") // Placeholder for processed result
+                self.isProcessing = false
+            }
+        }
 }
 
 
