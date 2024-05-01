@@ -8,66 +8,66 @@
 import Foundation
 
 struct MockData {
-    static let users: [User] = [
+    static let users: [Outfit] = [
         .init(
             id: NSUUID().uuidString,
             description: "1",
-            profileImageURL: ["outfits/1"]
+            outfitURL: ["outfits/1"]
         ),
         .init(
             id: NSUUID().uuidString,
             description: "2",
-            profileImageURL: ["outfits/2"]
+            outfitURL: ["outfits/2"]
         ),
         .init(
             id: NSUUID().uuidString,
             description: "3",
-            profileImageURL: ["outfits/3"]
+            outfitURL: ["outfits/3"]
         ),
         .init(
             id: NSUUID().uuidString,
             description: "4",
-            profileImageURL: ["outfits/4"]
+            outfitURL: ["outfits/4"]
         ),
         .init(
             id: NSUUID().uuidString,
             description: "5",
-            profileImageURL: ["outfits/5"]
+            outfitURL: ["outfits/5"]
         ),
         .init(
             id: NSUUID().uuidString,
             description: "6",
-            profileImageURL: ["outfits/6"]
+            outfitURL: ["outfits/6"]
         ),
         .init(
             id: NSUUID().uuidString,
             description: "7",
-            profileImageURL: ["outfits/7"]
+            outfitURL: ["outfits/7"]
         ),
         .init(
             id: NSUUID().uuidString,
             description: "8",
-            profileImageURL: ["outfits/8"]
+            outfitURL: ["outfits/8"]
         ),
         .init(
             id: NSUUID().uuidString,
             description: "9",
-            profileImageURL: ["outfits/9"]
+            outfitURL: ["outfits/9"]
         ),
         .init(
             id: NSUUID().uuidString,
             description: "10",
-            profileImageURL: ["outfits/10"]
+            outfitURL: ["outfits/10"]
         ),
         .init(
             id: NSUUID().uuidString,
             description: "11",
-            profileImageURL: ["outfits/11"]
+            outfitURL: ["outfits/11"]
         ),
         .init(
             id: NSUUID().uuidString,
             description: "12",
-            profileImageURL: ["outfits/12"]
+            outfitURL: ["outfits/12"]
         ),
     ]
 }

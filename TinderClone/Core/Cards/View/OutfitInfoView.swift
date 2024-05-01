@@ -7,11 +7,11 @@
 
 import SwiftUI
 
-struct UserInfoView: View {
+struct OutfitInfoView: View {
     
     @Binding var showProfileModal: Bool
     
-    let user: User
+    let user: Outfit
     
     var body: some View {
         VStack(alignment: .leading) {
@@ -44,5 +44,5 @@ struct UserInfoView: View {
 }
 
 #Preview {
-    UserInfoView(showProfileModal: .constant(false), user: MockData.users[1])
+    OutfitInfoView(showProfileModal: .constant(false), user: MockData.users[1])
 }

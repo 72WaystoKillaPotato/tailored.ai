@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import URLImage
 
 struct CardView: View {
     @EnvironmentObject var contentViewModel: ContentViewModel
@@ -21,25 +22,43 @@ struct CardView: View {
     var body: some View {
         ZStack(alignment: .bottom) {
             ZStack(alignment: .top) {
-                Image(user.profileImageURL[currentImageIndex])
-                    .resizable()
-                    .scaledToFill()
-                    .frame(width: SizeConstants.cardWidth, height: SizeConstants.cardHeight)
-                    .overlay {
-                        ImageScrollingOverlay(currentImageIndex: $currentImageIndex, imageCount: imageCount)
-                    }
+//                Image(user.outfitURL[currentImageIndex])
+//                    .resizable()
+//                    .scaledToFill()
+//                    .frame(width: SizeConstants.cardWidth, height: SizeConstants.cardHeight)
+//                    .overlay {
+//                        ImageScrollingOverlay(currentImageIndex: $currentImageIndex, imageCount: imageCount)
+//                    }
+                if let image = loadImageFromDocumentsDirectory(fileName: user.outfitURL[0]) {
+                    Image(uiImage: image)
+                        .resizable()
+                        .scaledToFill()
+                        .frame(width: SizeConstants.cardWidth, height: SizeConstants.cardHeight)
+                        .overlay {
+                            ImageScrollingOverlay(currentImageIndex: $currentImageIndex, imageCount: imageCount)
+                        }
+                } else {
+                    // Placeholder image or some fallback view if the image couldn't be loaded
+                    Color.gray // Placeholder color
+                        .frame(width: SizeConstants.cardWidth, height: SizeConstants.cardHeight)
+                        .overlay {
+                            Text("Image not found")
+                                .foregroundColor(.white)
+                        }
+                }
                 
                 SwipeActionIndicatorView(xOffset: $xOffset)
 
             }
                 
-            UserInfoView(showProfileModal: $showProfileModal, user: user)
+            OutfitInfoView(showProfileModal: $showProfileModal, user: user)
 
         }
 //        .fullScreenCover(isPresented: $showProfileModal) {
 //            UserProfileView(user: user)
 //        }
         .onReceive(viewModel.$buttonSwipeAction, perform: { action in
+//            print("USER: \(user)")
             onReceiveSwiperAction(action)
         })
         .frame(width: SizeConstants.cardWidth, height: SizeConstants.cardHeight)
@@ -56,12 +75,12 @@ struct CardView: View {
 }
 
 private extension CardView {
-    var user: User {
+    var user: Outfit {
         return model.user
     }
     
     var imageCount: Int {
-        return user.profileImageURL.count
+        return user.outfitURL.count
     }
 }
 
@@ -89,6 +108,7 @@ private extension CardView {
             degrees = -12
         } completion: {
             viewModel.removeCard(model)
+            deleteImageFromDocumentsDirectory(filename: model.user.outfitURL[0])
         }
     }
     
@@ -128,6 +148,35 @@ private extension CardView {
         } else {
             swipeLeft()
         }
+    }
+}
+
+private func loadImageFromDocumentsDirectory(fileName: String) -> UIImage? {
+    print("LOADING DATA: \(fileName)")
+    do {
+        let documentsDirectory = try FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false)
+        let fileURL = documentsDirectory.appendingPathComponent(fileName)
+        let imageData = try Data(contentsOf: fileURL)
+        print("Successfully loaded image from documents directory!")
+        return UIImage(data: imageData)
+    } catch {
+        print("Error loading image from documents directory: \(error)")
+        return nil
+    }
+}
+
+private func deleteImageFromDocumentsDirectory(filename: String) {
+    guard let documentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first else {
+        return
+    }
+    
+    let fileURL = documentsDirectory.appendingPathComponent(filename)
+    
+    do {
+        try FileManager.default.removeItem(at: fileURL)
+        print("Image deleted successfully.")
+    } catch {
+        print("Error deleting image: \(error.localizedDescription)")
     }
 }
 

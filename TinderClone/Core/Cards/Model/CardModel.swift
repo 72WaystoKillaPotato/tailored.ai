@@ -8,9 +8,9 @@
 import Foundation
 
 struct CardModel : Codable {
-    let user: User
+    let user: Outfit
     
-    init(user: User) {
+    init(user: Outfit) {
             self.user = user
         }
     
@@ -20,7 +20,7 @@ struct CardModel : Codable {
         
         init(from decoder: Decoder) throws {
             let container = try decoder.container(keyedBy: CodingKeys.self)
-            user = try container.decode(User.self, forKey: .user)
+            user = try container.decode(Outfit.self, forKey: .user)
         }
         
         func encode(to encoder: Encoder) throws {

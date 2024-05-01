@@ -1,5 +1,5 @@
 {
-  "originHash" : "3e5006842f6c8cc64263f5c0512b76ec3c33fb023092c4f323354c81ff3fcdd3",
+  "originHash" : "40ec9dcdcf5f4bb3d520c3ba4722f3b05ecac17a9e9299708fe00a2736306094",
   "pins" : [
     {
       "identity" : "advancedlist",
@@ -17,6 +17,24 @@
       "state" : {
         "revision" : "af667b368a10512da79605b61698d53c11d24cbf",
         "version" : "0.1.1"
+      }
+    },
+    {
+      "identity" : "pythonkit",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/pvieito/PythonKit.git",
+      "state" : {
+        "branch" : "master",
+        "revision" : "b54598c853303a09efe16296c099314215af9a12"
+      }
+    },
+    {
+      "identity" : "url-image",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/dmytro-anokhin/url-image",
+      "state" : {
+        "revision" : "4042f955f1fdff00ced85545e1eecdbf969b5cd0",
+        "version" : "3.1.1"
       }
     }
   ],

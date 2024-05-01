@@ -23,6 +23,7 @@ class CardsViewModel: ObservableObject {
     func fetchCardModels() async {
         do {
             self.cardModels = try await service.fetchCardModels()
+            print("SELF.CARDMODELS")
         } catch {
             print("DEBUG: Failed to fetch cards with error: \(error)")
         }

@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4B05D0DF2BE1C23B0052DEAC /* PythonKit in Frameworks */ = {isa = PBXBuildFile; productRef = 4B05D0DE2BE1C23B0052DEAC /* PythonKit */; };
+		4B05D0E22BE217940052DEAC /* URLImage in Frameworks */ = {isa = PBXBuildFile; productRef = 4B05D0E12BE217940052DEAC /* URLImage */; };
+		4B05D0E42BE217940052DEAC /* URLImageStore in Frameworks */ = {isa = PBXBuildFile; productRef = 4B05D0E32BE217940052DEAC /* URLImageStore */; };
 		856DB9492BCF8C1400723BA4 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 856DB9482BCF8C1400723BA4 /* Constants.swift */; };
 		856DB9532BDA182200723BA4 /* AdvancedList in Frameworks */ = {isa = PBXBuildFile; productRef = 856DB9522BDA182200723BA4 /* AdvancedList */; };
 		856DB9552BDA223F00723BA4 /* Measurement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 856DB9542BDA223F00723BA4 /* Measurement.swift */; };
@@ -26,13 +29,13 @@
 		A880F81E2BBC208700FD0DE5 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A880F81D2BBC208700FD0DE5 /* Preview Assets.xcassets */; };
 		A880F8302BBC26F100FD0DE5 /* TabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A880F82F2BBC26F100FD0DE5 /* TabBarView.swift */; };
 		A880F8332BBC2CC400FD0DE5 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A880F8322BBC2CC400FD0DE5 /* CardView.swift */; };
-		A880F8352BBC304800FD0DE5 /* UserInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A880F8342BBC304800FD0DE5 /* UserInfoView.swift */; };
+		A880F8352BBC304800FD0DE5 /* OutfitInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A880F8342BBC304800FD0DE5 /* OutfitInfoView.swift */; };
 		A880F8372BBC394F00FD0DE5 /* SwipeActionIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A880F8362BBC394F00FD0DE5 /* SwipeActionIndicatorView.swift */; };
 		A880F83C2BBC444C00FD0DE5 /* SizeConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A880F83B2BBC444C00FD0DE5 /* SizeConstants.swift */; };
 		A880F83E2BBC45C400FD0DE5 /* ImageScrollingOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = A880F83D2BBC45C400FD0DE5 /* ImageScrollingOverlay.swift */; };
 		A880F8402BBC492600FD0DE5 /* CardImageIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A880F83F2BBC492600FD0DE5 /* CardImageIndicatorView.swift */; };
 		A880F8422BBC4C0300FD0DE5 /* CardStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A880F8412BBC4C0300FD0DE5 /* CardStackView.swift */; };
-		A880F8462BBC4E7300FD0DE5 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = A880F8452BBC4E7300FD0DE5 /* User.swift */; };
+		A880F8462BBC4E7300FD0DE5 /* Outfit.swift in Sources */ = {isa = PBXBuildFile; fileRef = A880F8452BBC4E7300FD0DE5 /* Outfit.swift */; };
 		A880F8492BBC4ECD00FD0DE5 /* CardModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A880F8482BBC4ECD00FD0DE5 /* CardModel.swift */; };
 		A880F84C2BBC4F2900FD0DE5 /* CardsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A880F84B2BBC4F2900FD0DE5 /* CardsViewModel.swift */; };
 		A880F84F2BBC4F9100FD0DE5 /* CardService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A880F84E2BBC4F9100FD0DE5 /* CardService.swift */; };
@@ -63,13 +66,13 @@
 		A880F81D2BBC208700FD0DE5 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		A880F82F2BBC26F100FD0DE5 /* TabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarView.swift; sourceTree = "<group>"; };
 		A880F8322BBC2CC400FD0DE5 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
-		A880F8342BBC304800FD0DE5 /* UserInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoView.swift; sourceTree = "<group>"; };
+		A880F8342BBC304800FD0DE5 /* OutfitInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutfitInfoView.swift; sourceTree = "<group>"; };
 		A880F8362BBC394F00FD0DE5 /* SwipeActionIndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeActionIndicatorView.swift; sourceTree = "<group>"; };
 		A880F83B2BBC444C00FD0DE5 /* SizeConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SizeConstants.swift; sourceTree = "<group>"; };
 		A880F83D2BBC45C400FD0DE5 /* ImageScrollingOverlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageScrollingOverlay.swift; sourceTree = "<group>"; };
 		A880F83F2BBC492600FD0DE5 /* CardImageIndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardImageIndicatorView.swift; sourceTree = "<group>"; };
 		A880F8412BBC4C0300FD0DE5 /* CardStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardStackView.swift; sourceTree = "<group>"; };
-		A880F8452BBC4E7300FD0DE5 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		A880F8452BBC4E7300FD0DE5 /* Outfit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Outfit.swift; sourceTree = "<group>"; };
 		A880F8482BBC4ECD00FD0DE5 /* CardModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardModel.swift; sourceTree = "<group>"; };
 		A880F84B2BBC4F2900FD0DE5 /* CardsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsViewModel.swift; sourceTree = "<group>"; };
 		A880F84E2BBC4F9100FD0DE5 /* CardService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardService.swift; sourceTree = "<group>"; };
@@ -84,7 +87,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4B05D0E42BE217940052DEAC /* URLImageStore in Frameworks */,
 				856DB9532BDA182200723BA4 /* AdvancedList in Frameworks */,
+				4B05D0E22BE217940052DEAC /* URLImage in Frameworks */,
+				4B05D0DF2BE1C23B0052DEAC /* PythonKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -240,7 +246,7 @@
 			isa = PBXGroup;
 			children = (
 				A880F8322BBC2CC400FD0DE5 /* CardView.swift */,
-				A880F8342BBC304800FD0DE5 /* UserInfoView.swift */,
+				A880F8342BBC304800FD0DE5 /* OutfitInfoView.swift */,
 				A880F8362BBC394F00FD0DE5 /* SwipeActionIndicatorView.swift */,
 				A880F83D2BBC45C400FD0DE5 /* ImageScrollingOverlay.swift */,
 				A880F83F2BBC492600FD0DE5 /* CardImageIndicatorView.swift */,
@@ -269,7 +275,7 @@
 		A880F8442BBC4E6600FD0DE5 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				A880F8452BBC4E7300FD0DE5 /* User.swift */,
+				A880F8452BBC4E7300FD0DE5 /* Outfit.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -333,6 +339,9 @@
 			name = TinderClone;
 			packageProductDependencies = (
 				856DB9522BDA182200723BA4 /* AdvancedList */,
+				4B05D0DE2BE1C23B0052DEAC /* PythonKit */,
+				4B05D0E12BE217940052DEAC /* URLImage */,
+				4B05D0E32BE217940052DEAC /* URLImageStore */,
 			);
 			productName = TinderClone;
 			productReference = A880F8132BBC208500FD0DE5 /* TinderClone.app */;
@@ -364,6 +373,8 @@
 			mainGroup = A880F80A2BBC208500FD0DE5;
 			packageReferences = (
 				856DB9512BDA182200723BA4 /* XCRemoteSwiftPackageReference "AdvancedList" */,
+				4B05D0DD2BE1C23B0052DEAC /* XCRemoteSwiftPackageReference "PythonKit" */,
+				4B05D0E02BE217940052DEAC /* XCRemoteSwiftPackageReference "url-image" */,
 			);
 			productRefGroup = A880F8142BBC208500FD0DE5 /* Products */;
 			projectDirPath = "";
@@ -417,8 +428,8 @@
 				A880F83C2BBC444C00FD0DE5 /* SizeConstants.swift in Sources */,
 				A880F8172BBC208500FD0DE5 /* TinderCloneApp.swift in Sources */,
 				A880F84C2BBC4F2900FD0DE5 /* CardsViewModel.swift in Sources */,
-				A880F8352BBC304800FD0DE5 /* UserInfoView.swift in Sources */,
-				A880F8462BBC4E7300FD0DE5 /* User.swift in Sources */,
+				A880F8352BBC304800FD0DE5 /* OutfitInfoView.swift in Sources */,
+				A880F8462BBC4E7300FD0DE5 /* Outfit.swift in Sources */,
 				856DB9552BDA223F00723BA4 /* Measurement.swift in Sources */,
 				856DB9492BCF8C1400723BA4 /* Constants.swift in Sources */,
 			);
@@ -551,10 +562,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"TinderClone/Preview Content\"";
-				DEVELOPMENT_TEAM = MZK45Q4L6T;
+				DEVELOPMENT_TEAM = A77TCPV566;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = Tailored.ai;
@@ -568,8 +580,9 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.samsu.tailoredai;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ryno2315.tailoredai;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -581,10 +594,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"TinderClone/Preview Content\"";
-				DEVELOPMENT_TEAM = MZK45Q4L6T;
+				DEVELOPMENT_TEAM = A77TCPV566;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = Tailored.ai;
@@ -598,8 +612,9 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.samsu.tailoredai;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ryno2315.tailoredai;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -630,6 +645,22 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		4B05D0DD2BE1C23B0052DEAC /* XCRemoteSwiftPackageReference "PythonKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/pvieito/PythonKit.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+		4B05D0E02BE217940052DEAC /* XCRemoteSwiftPackageReference "url-image" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/dmytro-anokhin/url-image";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.1.1;
+			};
+		};
 		856DB9512BDA182200723BA4 /* XCRemoteSwiftPackageReference "AdvancedList" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/crelies/AdvancedList";
@@ -641,6 +672,21 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		4B05D0DE2BE1C23B0052DEAC /* PythonKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4B05D0DD2BE1C23B0052DEAC /* XCRemoteSwiftPackageReference "PythonKit" */;
+			productName = PythonKit;
+		};
+		4B05D0E12BE217940052DEAC /* URLImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4B05D0E02BE217940052DEAC /* XCRemoteSwiftPackageReference "url-image" */;
+			productName = URLImage;
+		};
+		4B05D0E32BE217940052DEAC /* URLImageStore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4B05D0E02BE217940052DEAC /* XCRemoteSwiftPackageReference "url-image" */;
+			productName = URLImageStore;
+		};
 		856DB9522BDA182200723BA4 /* AdvancedList */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 856DB9512BDA182200723BA4 /* XCRemoteSwiftPackageReference "AdvancedList" */;

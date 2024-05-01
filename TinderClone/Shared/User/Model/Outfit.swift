@@ -7,8 +7,8 @@
 
 import Foundation
 
-struct User: Identifiable, Hashable, Codable {
+struct Outfit: Identifiable, Hashable, Codable {
     let id: String
     let description: String
-    var profileImageURL: [String]
+    var outfitURL: [String]
 }
