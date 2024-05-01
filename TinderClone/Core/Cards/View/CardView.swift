@@ -19,6 +19,24 @@ struct CardView: View {
     
     let model: CardModel
     
+    // Store loaded images in a dictionary
+    @State private var imageCache: [String: UIImage] = [:]
+    
+    private func loadImageFromDocumentsDirectory(fileName: String) {
+        print("LOADING DATA (CardView): \(fileName)")
+        do {
+            let documentsDirectory = try FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false)
+            let fileURL = documentsDirectory.appendingPathComponent(fileName)
+            let imageData = try Data(contentsOf: fileURL)
+            // Store loaded image in the cache
+            if let image = UIImage(data: imageData) {
+                imageCache[fileName] = image
+            }
+        } catch {
+            print("Error loading image from documents directory: \(error)")
+        }
+    }
+    
     var body: some View {
         ZStack(alignment: .bottom) {
             ZStack(alignment: .top) {
@@ -28,8 +46,8 @@ struct CardView: View {
 //                    .frame(width: SizeConstants.cardWidth, height: SizeConstants.cardHeight)
 //                    .overlay {
 //                        ImageScrollingOverlay(currentImageIndex: $currentImageIndex, imageCount: imageCount)
-//                    }
-                if let image = loadImageFromDocumentsDirectory(fileName: user.outfitURL[0]) {
+//                    }l
+                if let image = imageCache[user.outfitURL[0]] {
                     Image(uiImage: image)
                         .resizable()
                         .scaledToFill()
@@ -57,6 +75,10 @@ struct CardView: View {
 //        .fullScreenCover(isPresented: $showProfileModal) {
 //            UserProfileView(user: user)
 //        }
+        .onAppear {
+            // Load images from documents directory when the view appears
+            loadImageFromDocumentsDirectory(fileName: user.outfitURL[0])
+        }
         .onReceive(viewModel.$buttonSwipeAction, perform: { action in
 //            print("USER: \(user)")
             onReceiveSwiperAction(action)
@@ -148,20 +170,6 @@ private extension CardView {
         } else {
             swipeLeft()
         }
-    }
-}
-
-private func loadImageFromDocumentsDirectory(fileName: String) -> UIImage? {
-    print("LOADING DATA: \(fileName)")
-    do {
-        let documentsDirectory = try FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false)
-        let fileURL = documentsDirectory.appendingPathComponent(fileName)
-        let imageData = try Data(contentsOf: fileURL)
-        print("Successfully loaded image from documents directory!")
-        return UIImage(data: imageData)
-    } catch {
-        print("Error loading image from documents directory: \(error)")
-        return nil
     }
 }
 

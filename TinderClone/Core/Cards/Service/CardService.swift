@@ -51,7 +51,7 @@ struct CardService {
 
     
 //    let baseApiUrl = "http://127.0.0.1:5000" // Replace with your actual server IP and port
-    let baseApiUrl = "https://849b-2601-41-4300-e3b0-e833-6216-b5de-d895.ngrok-free.app"
+    let baseApiUrl = "https://7da7-2607-f470-6-1001-2569-1ac3-2921-ef48.ngrok-free.app"
     
     func fetchImageUrls(for num: Int) async throws -> [Outfit] {
         // Construct the URL for the Flask API endpoint
