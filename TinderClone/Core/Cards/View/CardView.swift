@@ -80,8 +80,8 @@ struct CardView: View {
             loadImageFromDocumentsDirectory(fileName: user.outfitURL[0])
         }
         .onReceive(viewModel.$buttonSwipeAction, perform: { action in
-//            print("USER: \(user)")
             onReceiveSwiperAction(action)
+            // TODO : Lazy Loading
         })
         .frame(width: SizeConstants.cardWidth, height: SizeConstants.cardHeight)
         .clipShape(.rect(cornerRadius: 10))

@@ -11,4 +11,6 @@ struct Outfit: Identifiable, Hashable, Codable {
     let id: String
     let description: String
     var outfitURL: [String]
+    
+    var categories: [String: [String: [String]]]
 }

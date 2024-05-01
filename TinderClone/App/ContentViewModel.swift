@@ -51,20 +51,102 @@ class ContentViewModel: ObservableObject {
         // Populate the model with test data
         let users: [Outfit] = [
             .init(
-                id: NSUUID().uuidString,
-                description: "1",
-                outfitURL: ["outfits/1"]
+                id: "39708",
+                description: "",
+                outfitURL: ["https://farm6.staticflickr.com/5350/9907922113_d507ed7f2e_n.jpg"],
+                categories: [
+                    "Dresses": [
+                        "dress": [
+                            "no special manufacturing technique",
+                            "normal waist",
+                            "stripe",
+                            "no non-textile material",
+                            "above-the-knee (length)",
+                            "pencil",
+                            "symmetrical",
+                            "zip-up",
+                            "bodycon (dress)"
+                        ]
+                    ],
+                    "Miscellaneous": [
+                        "neckline": ["off-the-shoulder"],
+                        "sleeve": ["dropped-shoulder sleeve", "short (length)"],
+                        "zipper": []
+                    ]
+                ]
             ),
             .init(
-                id: NSUUID().uuidString,
-                description: "2",
-                outfitURL: ["outfits/2"]
+                id: "47679",
+                description: "",
+                outfitURL: ["https://farm3.staticflickr.com/2485/3691568587_b9e3d403d5_m.jpg"],
+                categories: [
+                    "Miscellaneous": [
+                        "collar": ["regular (collar)"],
+                        "sleeve": ["short (length)", "set-in sleeve"]
+                    ],
+                    "Tops": [
+                        "blouse": [
+                            "above-the-hip (length)",
+                            "no special manufacturing technique",
+                            "normal waist",
+                            "no non-textile material",
+                            "stripe",
+                            "regular (fit)",
+                            "single breasted",
+                            "symmetrical"
+                        ],
+                        "shirt": [
+                            "above-the-hip (length)",
+                            "no special manufacturing technique",
+                            "normal waist",
+                            "no non-textile material",
+                            "stripe",
+                            "regular (fit)",
+                            "single breasted",
+                            "symmetrical"
+                        ]
+                    ]
+                ]
             ),
             .init(
-                id: NSUUID().uuidString,
-                description: "3",
-                outfitURL: ["outfits/3"]
-            )
+                id: "23413",
+                description: "",
+                outfitURL: ["https://farm6.staticflickr.com/5691/23622753682_e637161274_n.jpg"],
+                categories: [
+                    "Accessories": [
+                        "bag": [],
+                        "wallet": [],
+                        "watch": []
+                    ],
+                    "Bottoms": [
+                        "shorts": [
+                            "regular (fit)",
+                            "symmetrical",
+                            "no special manufacturing technique",
+                            "mini (length)"
+                        ]
+                    ],
+                    "Miscellaneous": [
+                        "neckline": ["scoop (neck)"],
+                        "pocket": ["curved (pocket)"],
+                        "sleeve": ["set-in sleeve", "three quarter (length)"]
+                    ],
+                    "Tops": [
+                        "sweatshirt": [
+                            "plain (pattern)",
+                            "no non-textile material"
+                        ],
+                        "t-shirt": [
+                            "plain (pattern)",
+                            "no non-textile material"
+                        ],
+                        "top": [
+                            "plain (pattern)",
+                            "no non-textile material"
+                        ]
+                    ]
+                ]
+            ),
         ]
         model.likedCardsModels = users.map { CardModel(user: $0) }
         return model

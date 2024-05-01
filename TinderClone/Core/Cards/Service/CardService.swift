@@ -17,7 +17,7 @@ struct CardService {
         
         var outfitsToRemoveIndices: [Int] = []
 
-        let _ = MockData.users  // get outfit
+//        let mockOutfits = MockData.users  // get outfit
         
         for (i, var outfit) in outfits.enumerated() {
             guard let url = URL(string: outfit.outfitURL[0]) else {
@@ -51,7 +51,7 @@ struct CardService {
 
     
 //    let baseApiUrl = "http://127.0.0.1:5000" // Replace with your actual server IP and port
-    let baseApiUrl = "https://7da7-2607-f470-6-1001-2569-1ac3-2921-ef48.ngrok-free.app"
+    let baseApiUrl = "https://4132-2607-f470-6-1001-2569-1ac3-2921-ef48.ngrok-free.app"
     
     func fetchImageUrls(for num: Int) async throws -> [Outfit] {
         // Construct the URL for the Flask API endpoint
