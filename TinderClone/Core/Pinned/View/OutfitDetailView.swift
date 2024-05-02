@@ -72,19 +72,16 @@ struct OutfitDetailView: View {
             } else {
                 // Placeholder image or some fallback view if the image couldn't be loaded
                 Color.gray // Placeholder color
-                    .frame(width: SizeConstants.cardWidth, height: SizeConstants.cardHeight)
+                    .cornerRadius(15)
+                    .frame(width: max(geometry.size.width - 20, 0))
+                    .frame(maxHeight: max(geometry.size.height - 20, 0))
+                    .position(x: geometry.size.width / 2, y: geometry.size.height / 2)
                     .overlay {
                         Text("Image not found")
                             .foregroundColor(.white)
                     }
             }
         }
-    }
-}
-
-struct OutfitDetailView_Previews: PreviewProvider {
-    static var previews: some View {
-        OutfitDetailView(imageUrl: "outfits/1")
     }
 }
 
@@ -99,5 +96,11 @@ private func loadImageFromDocumentsDirectory(fileName: String) -> UIImage? {
     } catch {
         print("Error loading image from documents directory: \(error)")
         return nil
+    }
+}
+
+struct OutfitDetailView_Previews: PreviewProvider {
+    static var previews: some View {
+        OutfitDetailView(imageUrl: "outfits/1")
     }
 }

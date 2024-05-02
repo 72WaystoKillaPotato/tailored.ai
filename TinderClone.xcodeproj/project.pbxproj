@@ -10,6 +10,8 @@
 		4B05D0DF2BE1C23B0052DEAC /* PythonKit in Frameworks */ = {isa = PBXBuildFile; productRef = 4B05D0DE2BE1C23B0052DEAC /* PythonKit */; };
 		4B05D0E22BE217940052DEAC /* URLImage in Frameworks */ = {isa = PBXBuildFile; productRef = 4B05D0E12BE217940052DEAC /* URLImage */; };
 		4B05D0E42BE217940052DEAC /* URLImageStore in Frameworks */ = {isa = PBXBuildFile; productRef = 4B05D0E32BE217940052DEAC /* URLImageStore */; };
+		856684FF2BE2F45A00D352FE /* FilterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 856684FE2BE2F45A00D352FE /* FilterModel.swift */; };
+		856685052BE2F6D600D352FE /* FilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 856685042BE2F6D600D352FE /* FilterView.swift */; };
 		856DB9492BCF8C1400723BA4 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 856DB9482BCF8C1400723BA4 /* Constants.swift */; };
 		856DB9532BDA182200723BA4 /* AdvancedList in Frameworks */ = {isa = PBXBuildFile; productRef = 856DB9522BDA182200723BA4 /* AdvancedList */; };
 		856DB9552BDA223F00723BA4 /* Measurement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 856DB9542BDA223F00723BA4 /* Measurement.swift */; };
@@ -46,6 +48,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		856684FE2BE2F45A00D352FE /* FilterModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterModel.swift; sourceTree = "<group>"; };
+		856685042BE2F6D600D352FE /* FilterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterView.swift; sourceTree = "<group>"; };
 		856DB9482BCF8C1400723BA4 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		856DB9542BDA223F00723BA4 /* Measurement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Measurement.swift; sourceTree = "<group>"; };
 		856DB9562BDA273900723BA4 /* UserMeasurementsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserMeasurementsViewModel.swift; sourceTree = "<group>"; };
@@ -97,6 +101,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		856684FD2BE2F43600D352FE /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				856684FE2BE2F45A00D352FE /* FilterModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		856685032BE2F66C00D352FE /* View */ = {
+			isa = PBXGroup;
+			children = (
+				856DB9582BDB23CE00723BA4 /* OutfitDetailView.swift */,
+				85C0E4F02BC0941B00FE5615 /* PinnedOutfitsView.swift */,
+				856685042BE2F6D600D352FE /* FilterView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		856DB94C2BDA113100723BA4 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -123,8 +145,8 @@
 		85C0E4EF2BC093FA00FE5615 /* Pinned */ = {
 			isa = PBXGroup;
 			children = (
-				85C0E4F02BC0941B00FE5615 /* PinnedOutfitsView.swift */,
-				856DB9582BDB23CE00723BA4 /* OutfitDetailView.swift */,
+				856685032BE2F66C00D352FE /* View */,
+				856684FD2BE2F43600D352FE /* Model */,
 			);
 			path = Pinned;
 			sourceTree = "<group>";
@@ -414,12 +436,14 @@
 				A880F8522BBC507600FD0DE5 /* MockData.swift in Sources */,
 				856DB9592BDB23CE00723BA4 /* OutfitDetailView.swift in Sources */,
 				A880F8562BBC625900FD0DE5 /* SwipeAction.swift in Sources */,
+				856685052BE2F6D600D352FE /* FilterView.swift in Sources */,
 				A880F8302BBC26F100FD0DE5 /* TabBarView.swift in Sources */,
 				A880F8402BBC492600FD0DE5 /* CardImageIndicatorView.swift in Sources */,
 				856DB9572BDA273900723BA4 /* UserMeasurementsViewModel.swift in Sources */,
 				A880F8542BBC60F000FD0DE5 /* SwipeActionButtonsView.swift in Sources */,
 				85C0E4ED2BC090F300FE5615 /* PinterestLayoutAttributes.swift in Sources */,
 				85C0E4E92BC090F300FE5615 /* Help.swift in Sources */,
+				856684FF2BE2F45A00D352FE /* FilterModel.swift in Sources */,
 				A880F8492BBC4ECD00FD0DE5 /* CardModel.swift in Sources */,
 				85C0E4F12BC0941B00FE5615 /* PinnedOutfitsView.swift in Sources */,
 				A880F8422BBC4C0300FD0DE5 /* CardStackView.swift in Sources */,
@@ -566,7 +590,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"TinderClone/Preview Content\"";
-				DEVELOPMENT_TEAM = A77TCPV566;
+				DEVELOPMENT_TEAM = MZK45Q4L6T;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = Tailored.ai;
@@ -580,7 +604,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.ryno2315.tailoredai;
+				PRODUCT_BUNDLE_IDENTIFIER = com.samsu.tailored;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -598,7 +622,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"TinderClone/Preview Content\"";
-				DEVELOPMENT_TEAM = A77TCPV566;
+				DEVELOPMENT_TEAM = MZK45Q4L6T;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = Tailored.ai;
@@ -612,7 +636,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.ryno2315.tailoredai;
+				PRODUCT_BUNDLE_IDENTIFIER = com.samsu.tailored;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;

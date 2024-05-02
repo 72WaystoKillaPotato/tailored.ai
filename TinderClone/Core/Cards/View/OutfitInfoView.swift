@@ -10,37 +10,48 @@ import SwiftUI
 struct OutfitInfoView: View {
     
     @Binding var showProfileModal: Bool
+    @State private var isTextExpanded = false
     
     let user: Outfit
     
     var body: some View {
-        VStack(alignment: .leading) {
-            HStack {
-                Text(user.description)
-                    .font(.title)
-                    .fontWeight(.heavy)
-                
-                Spacer()
-                
-                Button {
-                    showProfileModal.toggle()
-                } label: {
-                    Image(systemName: "arrow.up.circle")
-                        .imageScale(.large)
-                        .fontWeight(.bold)
-                }
-            }
-            Text("Some test bio")
+        Button(action: {
+            // Toggle the expanded state
+            isTextExpanded.toggle()
+        }) {
+            Text(parseAndFormatAttributes(input: user.categories.description))
                 .font(.subheadline)
-                .lineLimit(2)
+                .lineLimit(isTextExpanded ? nil : 2) // Conditional line limit
+                .foregroundColor(.white)
+                .padding()
+                .background(
+                    LinearGradient(colors: [.clear, .black], startPoint: .top, endPoint: .bottom)
+                )
         }
-        .foregroundStyle(.white)
-        .padding()
-        .background(
-            LinearGradient(colors: [.clear, .black], startPoint: .top, endPoint: .bottom)
-        )
-      
     }
+}
+
+func parseAndFormatAttributes(input: String) -> String {
+    // Remove unwanted characters
+    let cleanedString = input
+        .replacingOccurrences(of: "[", with: "")
+        .replacingOccurrences(of: "]", with: "")
+        .replacingOccurrences(of: "{", with: "")
+        .replacingOccurrences(of: "}", with: "")
+        .replacingOccurrences(of: "\"", with: "")
+        .replacingOccurrences(of: "(", with: "")
+        .replacingOccurrences(of: ")", with: "")
+
+    // Replace colons and clean up commas
+    let semiFormattedString = cleanedString.replacingOccurrences(of: ":", with: ",")
+        .replacingOccurrences(of: ", ,", with: ",") // Handle consecutive commas
+        .replacingOccurrences(of: ",,", with: ",") // Additional cleanup for consecutive commas
+
+    // Split and trim each component
+    let components = semiFormattedString.split(separator: ",").map { $0.trimmingCharacters(in: .whitespacesAndNewlines) }
+
+    // Join the components back into a single string with proper comma separation
+    return components.joined(separator: ", ")
 }
 
 #Preview {

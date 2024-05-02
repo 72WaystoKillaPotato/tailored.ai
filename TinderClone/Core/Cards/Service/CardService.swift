@@ -12,7 +12,7 @@ struct CardService {
     
     func fetchCardModels() async throws -> [CardModel] {
 
-        var outfits = try await fetchImageUrls(for: 30)
+        var outfits = try await fetchImageUrls(for: 50)
         print("GOT OUTFITS")
         
         var outfitsToRemoveIndices: [Int] = []
@@ -51,7 +51,7 @@ struct CardService {
 
     
 //    let baseApiUrl = "http://127.0.0.1:5000" // Replace with your actual server IP and port
-    let baseApiUrl = "https://4132-2607-f470-6-1001-2569-1ac3-2921-ef48.ngrok-free.app"
+    let baseApiUrl = "https://a744-2607-f470-6-1001-e008-cb7a-4797-8b7f.ngrok-free.app"
     
     func fetchImageUrls(for num: Int) async throws -> [Outfit] {
         // Construct the URL for the Flask API endpoint
