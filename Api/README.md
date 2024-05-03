@@ -10,6 +10,8 @@ $ pip install numpy
 $ pip install 'git+https://github.com/cocodataset/cocoapi.git#subdirectory=PythonAPI'
 $ pip install fashionpedia
 $ pip install flask
+(Download annotations.json)
+$ curl https://s3.amazonaws.com/ifashionist-dataset/annotations/instances_attributes_train2020.json > annotations.json
 
 To Run Api Locally:
 
