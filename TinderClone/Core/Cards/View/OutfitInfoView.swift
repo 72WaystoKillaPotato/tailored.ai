@@ -49,6 +49,11 @@ func parseAndFormatAttributes(input: String) -> String {
 
     // Split and trim each component
     let components = semiFormattedString.split(separator: ",").map { $0.trimmingCharacters(in: .whitespacesAndNewlines) }
+    
+    print("parseAndFormat")
+    print("input: \(input)")
+    print("semiFormatted: \(semiFormattedString)")
+    print("components: \(components)")
 
     // Join the components back into a single string with proper comma separation
     return components.joined(separator: ", ")

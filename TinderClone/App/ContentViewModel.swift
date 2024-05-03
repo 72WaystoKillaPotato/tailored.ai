@@ -14,6 +14,10 @@ class ContentViewModel: ObservableObject {
         }
     }
     
+    @Published var filterModel: FilterModel = FilterModel()
+    
+    @Published var likedCategories: [String] = []
+    
     
     private let plistFile = "LikedCards.plist"
     

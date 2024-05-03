@@ -17,14 +17,48 @@ struct PinnedOutfitsView: View {
     
     @EnvironmentObject var contentViewModel: ContentViewModel
     @State private var showingFilterView = false // State to manage the display of the filter view
-    @State private var selectedImage: ImageItem?
+//    @State private var selectedImage: ImageItem?
+    @State private var selectedImage: CardModel?
+    @State private var filteredCardModels: [CardModel] = []
+    
+    @ObservedObject var filterModel: FilterModel = FilterModel()
+    
+    private func filteredImages() -> [CardModel] {
+//        let selectedFilters = contentViewModel.filterModel.getSelectedFilters()
+        let selectedFilters = filterModel.getSelectedFilters()
+        print("SelectedFilters: \(selectedFilters)")
+        
+        if (selectedFilters.isEmpty) {
+            return contentViewModel.likedCardsModels
+        }
+        
+        // Filter the images based on the selected filters
+        let filteredModels = contentViewModel.likedCardsModels.filter { cardModel in
+            for (category, attribute) in selectedFilters {
+                if cardModel.user.categories[category]?[attribute.lowercased()] == nil {
+                    return false
+                }
+            }
+            return true
+        }
+        
+        // Get the image URLs from the filtered models
+        return filteredModels
+    }
         
     // Calculate the columns
-    private func columnImages(column: Int) -> [String] {
-        let indices = stride(from: column, to: contentViewModel.likedCardsModels.count, by: 2)
+//    private func columnImages(column: Int) -> [String] {
+    private func columnImages(column: Int) -> [CardModel] {
+        let filteredCardModels = filteredImages()
+        let indices = stride(from: column, to: filteredCardModels.count, by: 2)
         return indices.map { index in
-            contentViewModel.likedCardsModels[index].user.outfitURL.first ?? ""
+//            filteredCardModels[index].user.outfitURL.first ?? ""
+            filteredCardModels[index]
         }
+//        let indices = stride(from: column, to: contentViewModel.likedCardsModels.count, by: 2)
+//        return indices.map { index in
+//            contentViewModel.likedCardsModels[index].user.outfitURL.first ?? ""
+//        }
     }
 
     var body: some View {
@@ -33,8 +67,10 @@ struct PinnedOutfitsView: View {
                 HStack(alignment: .top, spacing: 16) {
                     ForEach(0..<2, id: \.self) { column in
                         VStack(spacing: 16) {
-                            ForEach(columnImages(column: column), id: \.self) { imageUrl in
-                                if let image = loadImageFromDocumentsDirectory(fileName: imageUrl) {
+//                            ForEach(columnImages(column: column), id: \.self) { imageUrl in
+//                                if let image = loadImageFromDocumentsDirectory(fileName: imageUrl) {
+                            ForEach(columnImages(column: column), id: \.self) { cardModel in
+                                if let image = loadImageFromDocumentsDirectory(fileName: cardModel.user.outfitURL[0]) {
                                     Image(uiImage: image)
                                         .resizable()
                                         .scaledToFill()
@@ -43,7 +79,8 @@ struct PinnedOutfitsView: View {
                                         .clipped()
                                         .cornerRadius(15)
                                         .onTapGesture {
-                                            selectedImage = ImageItem(url: imageUrl)
+//                                            selectedImage = ImageItem(url: imageUrl)
+                                            selectedImage = cardModel
                                         }
                                 } else {
                                     // Placeholder image or some fallback view if the image couldn't be loaded
@@ -65,7 +102,8 @@ struct PinnedOutfitsView: View {
                 }
                 .padding(.horizontal)
                 .sheet(item: $selectedImage) { item in
-                    OutfitDetailView(imageUrl: item.url)
+//                    OutfitDetailView(imageUrl: item.url)
+                    OutfitDetailView(outfit: item)
                 }
             }
             // Add Custom Measurement Button
@@ -79,8 +117,17 @@ struct PinnedOutfitsView: View {
             .padding()
             .sheet(isPresented: $showingFilterView) {
                 // Assuming FilterView and its viewModel exist and are correctly configured
-                FilterView(viewModel: FilterModel()) // You might need to adjust the viewModel initialization based on your app's architecture
+//                FilterView(viewModel: FilterModel()) // You might need to adjust the viewModel initialization based on your app's architecture
+                FilterView(viewModel: filterModel) // You might need to adjust the viewModel initialization based on your app's architecture
             }
+        }
+        .onAppear {
+            filteredCardModels = contentViewModel.likedCardsModels
+        }
+//        .onChange(of: contentViewModel.filterModel.selectedFilters) {
+        .onChange(of: filterModel.selectedFilters) {
+            print("***FILTERING***")
+            filteredCardModels = filteredImages()
         }
     }
 }

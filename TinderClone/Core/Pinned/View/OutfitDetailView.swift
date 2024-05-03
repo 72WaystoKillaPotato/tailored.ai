@@ -8,9 +8,11 @@
 import SwiftUI
 
 struct OutfitDetailView: View {
-    var imageUrl: String    
+//    var imageUrl: String
+    var outfit: CardModel
     @State private var currentZoom = 0.0
     @State private var totalZoom = 1.0
+    @State private var showProfileModal = false
 
     var body: some View {
         GeometryReader { geometry in
@@ -41,45 +43,49 @@ struct OutfitDetailView: View {
 //                        totalZoom -= 1
 //                    }
 //                }
-            if let image = loadImageFromDocumentsDirectory(fileName: imageUrl) {
-                Image(uiImage: image)
-                    .resizable()
-                    .scaledToFit()
-                    .clipped()
-                    .cornerRadius(15)
-                    .frame(width: max(geometry.size.width - 20, 0))
-                    .frame(maxHeight: max(geometry.size.height - 20, 0))
-                    .position(x: geometry.size.width / 2, y: geometry.size.height / 2)
-                    .scaleEffect(currentZoom + totalZoom)
-                    .gesture(
-                        MagnifyGesture()
-                            .onChanged { value in
-                                currentZoom = value.magnification - 1
+            ZStack(alignment: .bottom) {
+                //            if let image = loadImageFromDocumentsDirectory(fileName: imageUrl) {
+                if let image = loadImageFromDocumentsDirectory(fileName: outfit.user.outfitURL[0]) {
+                    Image(uiImage: image)
+                        .resizable()
+                        .scaledToFit()
+                        .clipped()
+                        .cornerRadius(15)
+                        .frame(width: max(geometry.size.width - 20, 0))
+                        .frame(maxHeight: max(geometry.size.height - 20, 0))
+                        .position(x: geometry.size.width / 2, y: geometry.size.height / 2)
+                        .scaleEffect(currentZoom + totalZoom)
+                        .gesture(
+                            MagnifyGesture()
+                                .onChanged { value in
+                                    currentZoom = value.magnification - 1
+                                }
+                                .onEnded { value in
+                                    totalZoom += currentZoom
+                                    currentZoom = 0
+                                    totalZoom = max(totalZoom, 1)
+                                }
+                        )
+                        .accessibilityZoomAction { action in
+                            if action.direction == .zoomIn {
+                                totalZoom += 1
+                            } else {
+                                totalZoom -= 1
                             }
-                            .onEnded { value in
-                                totalZoom += currentZoom
-                                currentZoom = 0
-                                totalZoom = max(totalZoom, 1)
-                            }
-                    )
-                    .accessibilityZoomAction { action in
-                        if action.direction == .zoomIn {
-                            totalZoom += 1
-                        } else {
-                            totalZoom -= 1
                         }
-                    }
-            } else {
-                // Placeholder image or some fallback view if the image couldn't be loaded
-                Color.gray // Placeholder color
-                    .cornerRadius(15)
-                    .frame(width: max(geometry.size.width - 20, 0))
-                    .frame(maxHeight: max(geometry.size.height - 20, 0))
-                    .position(x: geometry.size.width / 2, y: geometry.size.height / 2)
-                    .overlay {
-                        Text("Image not found")
-                            .foregroundColor(.white)
-                    }
+                } else {
+                    // Placeholder image or some fallback view if the image couldn't be loaded
+                    Color.gray // Placeholder color
+                        .cornerRadius(15)
+                        .frame(width: max(geometry.size.width - 20, 0))
+                        .frame(maxHeight: max(geometry.size.height - 20, 0))
+                        .position(x: geometry.size.width / 2, y: geometry.size.height / 2)
+                        .overlay {
+                            Text("Image not found")
+                                .foregroundColor(.white)
+                        }
+                }
+                OutfitInfoView(showProfileModal: $showProfileModal, user: outfit.user)
             }
         }
     }
@@ -101,6 +107,6 @@ private func loadImageFromDocumentsDirectory(fileName: String) -> UIImage? {
 
 struct OutfitDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        OutfitDetailView(imageUrl: "outfits/1")
+        OutfitDetailView(outfit: CardModel(user: MockData.users[0]))
     }
 }

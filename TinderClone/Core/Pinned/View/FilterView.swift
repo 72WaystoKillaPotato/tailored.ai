@@ -9,21 +9,25 @@ import SwiftUI
 
 struct FilterView: View {
     @ObservedObject var viewModel: FilterModel
+
     let categories: [String: [String]] = [
         "Tops": ["Shirt", "Blouse", "T-shirt", "Sweatshirt", "Sweater", "Cardigan", "Jacket", "Vest"],
         "Dresses": ["Dress", "Jumpsuit"],
         "Outerwear": ["Coat", "Cape"],
         "Bottoms": ["Pants", "Shorts", "Skirt"],
-        "Accessories": ["Glasses", "Hat", "Headband", "Tie", "Glove", "Watch", "Belt", "Leg warmer", "Bag", "Wallet", "Tights", "Stockings", "Scarf", "Umbrella"],
+        "Accessories": ["Glasses", "Hat", "Headband", "Head Covering", "Hair Accessory", "Tie", "Glove", "Watch", "Belt", "Leg warmer", "Bag", "Wallet", "Tights", "Stockings", "Scarf", "Umbrella"],
         "Footwear": ["Shoe", "Sock"],
         "Miscellaneous": ["Hood", "Collar", "Lapel", "Epaulette", "Sleeve", "Pocket", "Neckline", "Buckle", "Zipper", "Applique", "Bead", "Bow", "Flower", "Fringe", "Ribbon", "Rivet", "Ruffle", "Sequin", "Tassel"]
+    ]
+    let categoryOrder: [String] = [
+        "Tops", "Bottoms", "Dresses", "Outerwear", "Accessories", "Footwear", "Miscellaneous"
     ]
     
     var body: some View {
         NavigationView {
             ScrollView {
                 VStack(alignment: .leading, spacing: 20) {
-                    ForEach(categories.keys.sorted(), id: \.self) { category in
+                    ForEach(categoryOrder, id: \.self) { category in
                         VStack(alignment: .leading) {
                             Text(category)
                                 .font(.headline)
@@ -59,7 +63,8 @@ struct FilterView: View {
                     
                     ToolbarItemGroup(placement: .navigationBarTrailing) {
                         Button("Done") {
-                            // Handle Done action, such as applying filters and closing the view
+                            // TODO : Handle Done action, such as applying filters and closing the view
+                            print("FILTERS: \(viewModel.selectedFilters)")
                         }
                         .foregroundColor(Color("colors/blue"))
                     }

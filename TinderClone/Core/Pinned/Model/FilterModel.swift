@@ -19,5 +19,10 @@ class FilterModel: ObservableObject {
         } else {
             selectedFilters[category] = attribute
         }
+        print("Selected Filters: \(selectedFilters)")
+    }
+    
+    func getSelectedFilters() -> [String: String] {
+        return selectedFilters
     }
 }
