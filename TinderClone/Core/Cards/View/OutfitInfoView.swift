@@ -19,7 +19,8 @@ struct OutfitInfoView: View {
             // Toggle the expanded state
             isTextExpanded.toggle()
         }) {
-            Text(parseAndFormatAttributes(input: user.categories.description))
+            Text(categoriesToString(input: user.categories))
+//            Text(parseAndFormatAttributes(input: user.categories.description))
                 .font(.subheadline)
                 .lineLimit(isTextExpanded ? nil : 2) // Conditional line limit
                 .foregroundColor(.white)
@@ -49,14 +50,34 @@ func parseAndFormatAttributes(input: String) -> String {
 
     // Split and trim each component
     let components = semiFormattedString.split(separator: ",").map { $0.trimmingCharacters(in: .whitespacesAndNewlines) }
-    
-    print("parseAndFormat")
-    print("input: \(input)")
-    print("semiFormatted: \(semiFormattedString)")
-    print("components: \(components)")
 
     // Join the components back into a single string with proper comma separation
     return components.joined(separator: ", ")
+}
+
+func categoriesToString(input: [String: [String: [String]]]) -> String {
+    // Initialize an empty string to hold the formatted result
+    var formattedString = ""
+
+    // Iterate over each key-value pair in the outer dictionary
+    for (category, attributes) in input {
+        // Append the category name to the result string
+        formattedString += "\(category):\n"
+        
+        // Iterate over each key-value pair in the inner dictionary
+        for (attribute, values) in attributes {
+            // Append the attribute name to the result string
+            formattedString += "  \(attribute): ["
+            
+            // Append each value to the result string
+            formattedString += values.joined(separator: ", ")
+            
+            // Close the list of values and add a newline character
+            formattedString += "]\n"
+        }
+    }
+
+    return formattedString
 }
 
 #Preview {
