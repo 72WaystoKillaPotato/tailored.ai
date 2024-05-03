@@ -37,6 +37,19 @@ struct CardView: View {
         }
     }
     
+//    // Trigger the fetching of more card models if the remaining number of images is less than 10
+//    private func checkAndFetchMoreModelsIfNeeded() {
+//        guard viewModel.cardModels.count < 10 else {
+//            // If there are already 10 or more card models, no need to fetch more
+//            return
+//        }
+//        
+//        // Fetch more card models
+//        Task {
+//            await viewModel.fetchMoreCardModels()
+//        }
+//    }
+    
     var body: some View {
         ZStack(alignment: .bottom) {
             ZStack(alignment: .top) {
@@ -47,23 +60,23 @@ struct CardView: View {
 //                    .overlay {
 //                        ImageScrollingOverlay(currentImageIndex: $currentImageIndex, imageCount: imageCount)
 //                    }l
-                if let image = imageCache[user.outfitURL[0]] {
-                    Image(uiImage: image)
-                        .resizable()
-                        .scaledToFill()
-                        .frame(width: SizeConstants.cardWidth, height: SizeConstants.cardHeight)
-                        .overlay {
-                            ImageScrollingOverlay(currentImageIndex: $currentImageIndex, imageCount: imageCount)
-                        }
-                } else {
-                    // Placeholder image or some fallback view if the image couldn't be loaded
-                    Color.gray // Placeholder color
-                        .frame(width: SizeConstants.cardWidth, height: SizeConstants.cardHeight)
-                        .overlay {
-                            Text("Image not found")
-                                .foregroundColor(.white)
-                        }
-                }
+                    if let image = imageCache[user.outfitURL[0]] {
+                        Image(uiImage: image)
+                            .resizable()
+                            .scaledToFill()
+                            .frame(width: SizeConstants.cardWidth, height: SizeConstants.cardHeight)
+                            .overlay {
+                                ImageScrollingOverlay(currentImageIndex: $currentImageIndex, imageCount: imageCount)
+                            }
+                    } else {
+                        // Placeholder image or some fallback view if the image couldn't be loaded
+                        Color.gray // Placeholder color
+                            .frame(width: SizeConstants.cardWidth, height: SizeConstants.cardHeight)
+                            .overlay {
+                                Text("Image not found")
+                                    .foregroundColor(.white)
+                            }
+                    }
                 
                 SwipeActionIndicatorView(xOffset: $xOffset)
 
@@ -78,10 +91,13 @@ struct CardView: View {
         .onAppear {
             // Load images from documents directory when the view appears
             loadImageFromDocumentsDirectory(fileName: user.outfitURL[0])
+            
+//            // Check and fetch more card models if needed
+//            print("IMAGE COUNT: \(viewModel.cardModels.count)")
+//            checkAndFetchMoreModelsIfNeeded()
         }
         .onReceive(viewModel.$buttonSwipeAction, perform: { action in
             onReceiveSwiperAction(action)
-            // TODO : Lazy Loading
         })
         .frame(width: SizeConstants.cardWidth, height: SizeConstants.cardHeight)
         .clipShape(.rect(cornerRadius: 10))
@@ -137,7 +153,7 @@ private extension CardView {
     func onReceiveSwiperAction(_ action: SwipeAction?) {
         guard let action else { return }
         
-        let topCard = viewModel.cardModels.last
+        let topCard = viewModel.cardModels.first
         
         if topCard == model {
             switch action {

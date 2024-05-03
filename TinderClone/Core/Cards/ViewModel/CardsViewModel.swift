@@ -23,7 +23,19 @@ class CardsViewModel: ObservableObject {
     func fetchCardModels() async {
         do {
             self.cardModels = try await service.fetchCardModels()
-            print("SELF.CARDMODELS")
+            print("***FETCHING CARD MODELS***")
+        } catch {
+            print("DEBUG: Failed to fetch cards with error: \(error)")
+        }
+    }
+    
+    func fetchMoreCardModels() async {
+        do {
+            let newCardModels = try await service.fetchCardModels()
+            // Append the new card models to the existing array
+//            self.cardModels.insert(contentsOf: newCardModels, at: 0)
+            cardModels.append(contentsOf: newCardModels)
+            print("***FETCHING CARD MODELS***")
         } catch {
             print("DEBUG: Failed to fetch cards with error: \(error)")
         }
