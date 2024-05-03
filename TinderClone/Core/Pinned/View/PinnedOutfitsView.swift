@@ -118,7 +118,7 @@ struct PinnedOutfitsView: View {
             .sheet(isPresented: $showingFilterView) {
                 // Assuming FilterView and its viewModel exist and are correctly configured
 //                FilterView(viewModel: FilterModel()) // You might need to adjust the viewModel initialization based on your app's architecture
-                FilterView(viewModel: filterModel) // You might need to adjust the viewModel initialization based on your app's architecture
+                FilterView(viewModel: filterModel, isPresented: $showingFilterView) // You might need to adjust the viewModel initialization based on your app's architecture
             }
         }
         .onAppear {
@@ -128,6 +128,9 @@ struct PinnedOutfitsView: View {
         .onChange(of: filterModel.selectedFilters) {
             print("***FILTERING***")
             filteredCardModels = filteredImages()
+        }
+        .onDisappear {
+            filterModel.selectedFilters.removeAll()
         }
     }
 }

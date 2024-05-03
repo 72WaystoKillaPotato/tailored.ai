@@ -16,17 +16,22 @@ class ContentViewModel: ObservableObject {
     
     @Published var filterModel: FilterModel = FilterModel()
     
-    @Published var likedCategories: [String] = []
+    @Published var likedCategories: Set<String> = [] {
+        didSet {
+            saveLikedCategories()
+        }
+    }
     
     
-    private let plistFile = "LikedCards.plist"
+    private let likedCardsPlist = "LikedCards.plist"
+    private let likedCategoriesPlist = "LikedCategories.plist"
     
     init() {
         loadLikedCardsModels()
     }
     
     private func saveLikedCardsModels() {
-        guard let plistURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first?.appendingPathComponent(plistFile) else {
+        guard let plistURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first?.appendingPathComponent(likedCardsPlist) else {
             return
         }
         
@@ -39,12 +44,37 @@ class ContentViewModel: ObservableObject {
     }
     
     private func loadLikedCardsModels() {
-        guard let plistURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first?.appendingPathComponent(plistFile) else {
+        guard let plistURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first?.appendingPathComponent(likedCardsPlist) else {
             return
         }
         do {
             let plistData = try Data(contentsOf: plistURL)
             likedCardsModels = try PropertyListDecoder().decode([CardModel].self, from: plistData)
+        } catch {
+            print("Error Loading likedCardsModels: \(error)")
+        }
+    }
+    
+    private func saveLikedCategories() {
+        guard let plistURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first?.appendingPathComponent(likedCategoriesPlist) else {
+            return
+        }
+        
+        do {
+            let plistData = try PropertyListEncoder().encode(likedCategories)
+            try plistData.write(to: plistURL)
+        } catch {
+            print("Error saving likedCardsModels: \(error)")
+        }
+    }
+    
+    private func loadLikedCategories() {
+        guard let plistURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first?.appendingPathComponent(likedCategoriesPlist) else {
+            return
+        }
+        do {
+            let plistData = try Data(contentsOf: plistURL)
+            likedCategories = try PropertyListDecoder().decode(Set<String>.self, from: plistData)
         } catch {
             print("Error Loading likedCardsModels: \(error)")
         }

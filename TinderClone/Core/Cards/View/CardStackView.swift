@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct CardStackView: View {
-    
+    @EnvironmentObject var contentModel: ContentViewModel
     @StateObject var viewModel = CardsViewModel(service: CardService())
     
     private func checkAndFetchMoreModelsIfNeeded() {
@@ -19,7 +19,7 @@ struct CardStackView: View {
         
         // Fetch more card models
         Task {
-            await viewModel.fetchMoreCardModels()
+            await viewModel.fetchMoreCardModels(in: Array(contentModel.likedCategories))
         }
     }
     

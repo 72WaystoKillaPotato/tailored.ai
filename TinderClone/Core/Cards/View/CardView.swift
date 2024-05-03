@@ -136,7 +136,12 @@ private extension CardView {
         } completion: {
             viewModel.removeCard(model)
             contentViewModel.likedCardsModels.append(model)
-            print("Liked: \(contentViewModel.likedCardsModels)")
+            for (key, value) in model.user.categories {
+                for (key1, value1) in value {
+                    print("inserting liked category: \(key1)")
+                    contentViewModel.likedCategories.insert(key1)
+                }
+            }
         }
     }
     

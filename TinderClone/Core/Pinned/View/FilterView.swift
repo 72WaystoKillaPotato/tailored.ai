@@ -9,6 +9,7 @@ import SwiftUI
 
 struct FilterView: View {
     @ObservedObject var viewModel: FilterModel
+    @Binding var isPresented: Bool
 
     let categories: [String: [String]] = [
         "Tops": ["Shirt", "Blouse", "T-shirt", "Sweatshirt", "Sweater", "Cardigan", "Jacket", "Vest"],
@@ -64,7 +65,7 @@ struct FilterView: View {
                     ToolbarItemGroup(placement: .navigationBarTrailing) {
                         Button("Done") {
                             // TODO : Handle Done action, such as applying filters and closing the view
-                            print("FILTERS: \(viewModel.selectedFilters)")
+                            isPresented = false
                         }
                         .foregroundColor(Color("colors/blue"))
                     }
@@ -76,7 +77,8 @@ struct FilterView: View {
 
 struct FilterView_Previews: PreviewProvider {
     static var previews: some View {
-        FilterView(viewModel: FilterModel())
+        @State var isPresented: Bool = true
+        FilterView(viewModel: FilterModel(), isPresented: $isPresented)
     }
 }
 

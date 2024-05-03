@@ -9,9 +9,9 @@ import Foundation
 
 struct CardService {
     
-    func fetchCardModels() async throws -> [CardModel] {
+    func fetchCardModels(in categories: [String]) async throws -> [CardModel] {
 
-        var outfits = try await fetchImageUrls(for: 30)
+        var outfits = try await fetchImageUrls(for: 30, in: categories)
         print("GOT OUTFITS")
         
         var outfitsToRemoveIndices: [Int] = []
@@ -50,14 +50,28 @@ struct CardService {
 
     
 //    let baseApiUrl = "http://127.0.0.1:5000" // Replace with your actual server IP and port
-    let baseApiUrl = "https://89f9-2601-41-4300-e3b0-8d9f-48ee-7ee2-7546.ngrok-free.app"
+    let baseApiUrl = "https://6904-2607-f470-6-1001-d1d6-6ed7-3538-bcc4.ngrok-free.app"
     
-    func fetchImageUrls(for num: Int) async throws -> [Outfit] {
+    func fetchImageUrls(for num: Int, in categories: [String] = []) async throws -> [Outfit] {
         // Construct the URL for the Flask API endpoint
         let apiUrl = baseApiUrl + "/images/\(num)"
         
+        // Construct the URL components for the Flask API endpoint
+        var apiUrlComponents = URLComponents(string: apiUrl)!
+
+        var queryItems: [URLQueryItem] = []
+
+        // Loop through the list and create a URL query item for each string
+        for category in categories {
+            let queryItem = URLQueryItem(name: "category", value: category)
+            queryItems.append(queryItem)
+        }
+        
+        // Add query parameters
+        apiUrlComponents.queryItems = queryItems
+        
         // Create a URL object from the API URL string
-        guard let url = URL(string: apiUrl) else {
+        guard let url = apiUrlComponents.url else {
             throw URLError(.badURL)
         }
         
