@@ -14,6 +14,13 @@ struct ImagePicker: UIViewControllerRepresentable {
     func makeUIViewController(context: UIViewControllerRepresentableContext<ImagePicker>) -> UIImagePickerController {
         let picker = UIImagePickerController()
         picker.delegate = context.coordinator
+        // Set the source type to use the camera
+        if UIImagePickerController.isSourceTypeAvailable(.camera) {
+            picker.sourceType = .camera
+        } else {
+            // Fallback to photo library if camera is not available
+            picker.sourceType = .photoLibrary
+        }
         return picker
     }
 
@@ -49,4 +56,3 @@ struct ImagePicker_Previews: PreviewProvider {
         ImagePicker(image: $dummyImage)
     }
 }
-
