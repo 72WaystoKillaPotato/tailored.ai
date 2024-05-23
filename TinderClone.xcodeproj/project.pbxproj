@@ -79,6 +79,7 @@
 		A880F8532BBC60F000FD0DE5 /* SwipeActionButtonsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeActionButtonsView.swift; sourceTree = "<group>"; };
 		A880F8552BBC625900FD0DE5 /* SwipeAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeAction.swift; sourceTree = "<group>"; };
 		A880F8582BBEEA7800FD0DE5 /* UserProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileView.swift; sourceTree = "<group>"; };
+		BC7E56FF2BFDB99F00590A6F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		BCC549722BDF068500FA7B9F /* PhotoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoView.swift; sourceTree = "<group>"; };
 		BCC549742BDF074F00FA7B9F /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -147,6 +148,7 @@
 		A880F8152BBC208500FD0DE5 /* TinderClone */ = {
 			isa = PBXGroup;
 			children = (
+				BC7E56FF2BFDB99F00590A6F /* Info.plist */,
 				A880F8242BBC239400FD0DE5 /* App */,
 				A880F8252BBC239A00FD0DE5 /* Core */,
 				A880F8272BBC23A700FD0DE5 /* Shared */,
@@ -573,6 +575,7 @@
 				DEVELOPMENT_TEAM = FC47US8TKH;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = TinderClone/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Tailored.ai;
 				INFOPLIST_KEY_NSCameraUsageDescription = "This app requires camera access to take photos for processing the model effect.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -605,6 +608,7 @@
 				DEVELOPMENT_TEAM = FC47US8TKH;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = TinderClone/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Tailored.ai;
 				INFOPLIST_KEY_NSCameraUsageDescription = "This app requires camera access to take photos for processing the model effect.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;

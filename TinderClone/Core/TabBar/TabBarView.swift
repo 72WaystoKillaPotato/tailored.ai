@@ -13,13 +13,19 @@ struct TabBarView: View {
     var body: some View {
         NavigationStack{
             TabView(selection: $selectedTab) {
+                PhotoView()
+                
+                    .tabItem {
+                        Label("Fit Room", systemImage: "camera")
+                    }
+                    .tag(3)
+                
                 PinnedOutfitsView()
                 
                     .tabItem {
                         Label("Outfits", systemImage: "pin")
                     }
                     .tag(0)
-                
                 
                 CardStackView()
                 
@@ -28,19 +34,12 @@ struct TabBarView: View {
                     }
                     .tag(1)
                 
-                
                 UserProfileView()
                 
                     .tabItem {
                         Label("Profile", systemImage: "person")
                     }
                     .tag(2)
-                PhotoView()
-                
-                    .tabItem {
-                        Label("Fit Room", systemImage: "camera")
-                    }
-                    .tag(3)
             }
             .tint(.primary)
             .navigationBarTitleDisplayMode(.inline)
